@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111827" />
+    <meta
+      name="description"
+      content="CV Builder gratis dengan template ATS, live preview, ekspor Word, PDF, dan panduan AI prompting." />
+    <title>CVForge — ATS CV Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.4/dist/pizzip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx-preview@0.3.3/dist/docx-preview.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3.37.9/build/docxtemplater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  </head>
+  <body>
+    <header class="site">
+      <div class="site-inner">
+        <a href="#" class="brand" data-go="landing" aria-label="CVForge home"
+          ><span class="brand-mark">C</span><span>CVForge</span></a
+        >
+        <nav class="site-nav" aria-label="Navigasi utama">
+          <a href="#templates" data-go="dash">Templates</a>
+          <a href="#tips" data-go="tips">Tips & Tricks</a>
+          <a href="#features" data-go="landing">Features</a>
+          <button class="btn primary compact" data-go="dash">
+            Buat CV <span>→</span>
+          </button>
+        </nav>
+        <button class="mobile-menu" type="button" aria-label="Buka navigasi">
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="page-landing" class="page active landing-page">
+      <section class="landing-hero">
+        <div class="hero-glow hero-glow-a"></div>
+        <div class="hero-glow hero-glow-b"></div>
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>FREE ATS CV BUILDER
+          </div>
+          <h1>Build a CV that gets <span>noticed.</span></h1>
+          <p class="hero-lead">
+            Buat CV profesional, ATS-friendly, dan siap dikirim tanpa ribet. Isi
+            per bagian, lihat perubahan secara live, lalu export dalam hitungan
+            menit.
+          </p>
+          <div class="cta-row hero-actions">
+            <button class="btn primary hero-cta" data-go="dash">
+              Buat CV Gratis <span class="arrow">→</span>
+            </button>
+            <button class="btn secondary hero-cta" data-go="tips">
+              Pelajari ATS CV
+            </button>
+          </div>
+          <div class="hero-note">
+            <span class="check-dot">✓</span>Tanpa akun · Data diproses di
+            browser · Gratis
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="floating-badge badge-top">
+            <span class="badge-icon">✓</span>
+            <div><b>ATS Ready</b><small>Clean structure</small></div>
+          </div>
+          <div class="resume-window">
+            <div class="resume-window-bar">
+              <span></span><span></span><span></span><i>CV Preview</i>
+            </div>
+            <div class="resume-sheet">
+              <div class="resume-profile">
+                <div class="resume-avatar"></div>
+                <div class="resume-lines">
+                  <b></b><span></span><span></span>
+                </div>
+              </div>
+              <div class="resume-heading"></div>
+              <div class="resume-line wide"></div>
+              <div class="resume-line"></div>
+              <div class="resume-line medium"></div>
+              <div class="resume-heading second"></div>
+              <div class="resume-row"><span></span><i></i></div>
+              <div class="resume-line wide"></div>
+              <div class="resume-line"></div>
+              <div class="resume-row"><span></span><i></i></div>
+              <div class="resume-line medium"></div>
+              <div class="resume-skills"><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="floating-badge badge-bottom">
+            <span class="badge-icon dark">✦</span>
+            <div><b>Live Preview</b><small>Updates as you type</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip">
+        <div class="trust-item">
+          <span class="trust-number">01</span>
+          <div><b>ATS-friendly</b><span>Struktur mudah dipindai</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">02</span>
+          <div><b>Live Preview</b><span>Perubahan terlihat langsung</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">03</span>
+          <div><b>Private by design</b><span>Data tetap di browser</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number">04</span>
+          <div><b>Word + PDF</b><span>Siap dikirim ke recruiter</span></div>
+        </div>
+      </section>
+
+      <section id="features" class="content-section feature-section">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">WHY CVFORGE</span>
+            <h2>Semua yang dibutuhkan untuk CV yang serius.</h2>
+          </div>
+          <p>
+            Bukan form panjang yang membuat manusia mempertanyakan pilihan
+            hidup. Setiap bagian dibuat fokus agar proses pengisian tetap cepat.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card feature-large">
+            <div class="feature-icon purple">✦</div>
+            <span class="card-index">01</span>
+            <h3>Live CV Preview</h3>
+            <p>
+              Lihat hasil CV berdasarkan template pilihan tanpa perlu menunggu
+              proses export.
+            </p>
+            <div class="mini-preview">
+              <div class="mini-preview-top"></div>
+              <div class="mini-preview-body">
+                <span></span><span></span><span class="long"></span><i></i
+                ><i></i>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon blue">⌁</div>
+            <span class="card-index">02</span>
+            <h3>Section by Section</h3>
+            <p>
+              Isi Data Diri, Pendidikan, Pengalaman, Skills, dan section lain
+              tanpa scrolling tak berujung.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon green">↗</div>
+            <span class="card-index">03</span>
+            <h3>Export Ready</h3>
+            <p>
+              Download Word atau gunakan print-to-PDF untuk mendapatkan file
+              yang siap digunakan.
+            </p>
+          </article>
+          <article class="feature-card feature-dark">
+            <div class="feature-icon light">AI</div>
+            <span class="card-index">04</span>
+            <h3>AI Prompting Guide</h3>
+            <p>
+              Gunakan prompt terarah untuk membuat summary, memperbaiki
+              experience, generate skills, dan review CV.
+            </p>
+            <button class="text-link light-link" data-go="tips">
+              Lihat prompt →
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section process-section">
+        <div class="section-heading centered">
+          <span class="section-kicker">HOW IT WORKS</span>
+          <h2>Dari data mentah menjadi CV siap kirim.</h2>
+          <p>
+            Tiga langkah. Tidak perlu tutorial 47 halaman untuk mengisi nama
+            sendiri.
+          </p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step">
+            <div class="process-number">01</div>
+            <div>
+              <h3>Pilih template</h3>
+              <p>
+                Pilih template yang sesuai dengan gaya CV dan kebutuhan Anda.
+              </p>
+            </div>
+          </article>
+          <article class="process-step">
+            <div class="process-number">02</div>
+            <div>
+              <h3>Isi per section</h3>
+              <p>
+                Navigasi menggunakan sidebar dan lihat progress pengisian secara
+                real-time.
+              </p>
+            </div>
+          </article>
+          <article class="process-step">
+            <div class="process-number">03</div>
+            <div>
+              <h3>Preview & download</h3>
+              <p>Periksa hasil akhir lalu export ke Word atau PDF.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="templates" class="content-section template-showcase">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">TEMPLATE SHOWCASE</span>
+            <h2>Template sederhana. Hasil profesional.</h2>
+          </div>
+          <button class="btn secondary" data-go="dash">
+            Lihat semua template →
+          </button>
+        </div>
+        <div class="showcase-grid">
+          <button class="showcase-template" data-go="dash">
+            <div class="showcase-paper paper-a">
+              <div class="paper-head">
+                <b>Alex Morgan</b><span>Software Engineer</span>
+              </div>
+              <div class="paper-rule"></div>
+              <i></i><i></i><i class="short"></i>
+              <div class="paper-title"></div>
+              <i></i><i></i><i></i><i class="short"></i>
+              <div class="paper-title"></div>
+              <i></i><i class="short"></i>
+            </div>
+            <div class="showcase-meta">
+              <b>Clean Professional</b><span>ATS focused</span>
+            </div>
+          </button>
+          <button class="showcase-template" data-go="dash">
+            <div class="showcase-paper paper-b">
+              <div class="paper-head centered-head">
+                <b>Alex Morgan</b><span>Product Designer</span>
+              </div>
+              <div class="paper-rule accent"></div>
+              <div class="paper-title"></div>
+              <i></i><i></i><i class="short"></i>
+              <div class="paper-title"></div>
+              <i></i><i></i><i></i>
+              <div class="paper-title"></div>
+              <i class="short"></i><i></i>
+            </div>
+            <div class="showcase-meta">
+              <b>Modern Minimal</b><span>Simple hierarchy</span>
+            </div>
+          </button>
+          <button class="showcase-template" data-go="dash">
+            <div class="showcase-paper paper-c">
+              <div class="paper-side"></div>
+              <div class="paper-head">
+                <b>Alex Morgan</b><span>IT Support</span>
+              </div>
+              <div class="paper-rule"></div>
+              <div class="paper-title"></div>
+              <i></i><i></i><i></i>
+              <div class="paper-title"></div>
+              <i></i><i class="short"></i>
+            </div>
+            <div class="showcase-meta">
+              <b>Compact ATS</b><span>Information dense</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <section class="content-section faq-section">
+        <div class="section-heading centered">
+          <span class="section-kicker">FAQ</span>
+          <h2>Pertanyaan yang biasanya muncul.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Apakah CVForge benar-benar gratis?</summary>
+            <p>Ya. Builder dapat digunakan tanpa akun dan tanpa biaya.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah data CV saya dikirim ke server?</summary>
+            <p>
+              Logic builder yang ada saat ini memproses data di browser. Gunakan
+              Ekspor JSON jika ingin membuat cadangan data sendiri.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Apa yang dimaksud CV ATS-friendly?</summary>
+            <p>
+              CV dengan struktur, heading, dan teks yang relatif mudah dipindai
+              oleh Applicant Tracking System. Halaman Tips menjelaskan prinsip
+              dasarnya.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Bisakah saya menggunakan AI untuk isi CV?</summary>
+            <p>
+              Bisa. Gunakan prompt yang tersedia sebagai titik awal, lalu
+              verifikasi setiap klaim dan angka sebelum memasukkannya ke CV.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="final-cta-glow"></div>
+        <span class="section-kicker">READY WHEN YOU ARE</span>
+        <h2>CV berikutnya bisa selesai malam ini.</h2>
+        <p>
+          Mulai dari template, isi bagian penting, periksa preview, lalu export.
+        </p>
+        <button class="btn light-cta" data-go="dash">
+          Buat CV Gratis <span>→</span>
+        </button>
+      </section>
+
+      <footer class="foot">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a href="#" class="brand" data-go="landing"
+              ><span class="brand-mark">C</span><span>CVForge</span></a
+            >
+            <p>
+              ATS CV Builder untuk membuat resume yang rapi, terstruktur, dan
+              siap digunakan.
+            </p>
+          </div>
+          <div class="footer-links">
+            <div>
+              <b>Product</b><a href="#templates" data-go="dash">Templates</a
+              ><a href="#" data-go="dash">CV Builder</a>
+            </div>
+            <div>
+              <b>Resources</b><a href="#tips" data-go="tips">Tips & Tricks</a
+              ><a href="#features" data-go="landing">Features</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© CVForge · Free ATS CV Builder</span
+          ><span>Built for practical job applications.</span>
+        </div>
+      </footer>
+    </main>
+
+    <main id="page-dash" class="page">
+      <section class="page-intro">
+        <div>
+          <span class="section-kicker">CV BUILDER</span>
+          <h1>Pilih template untuk memulai.</h1>
+          <p>
+            Setelah template dipilih, Anda akan masuk ke workspace CV dengan
+            navigasi per section.
+          </p>
+        </div>
+        <button class="btn secondary" data-go="landing">
+          ← Kembali ke home
+        </button>
+      </section>
+      <section class="builder-benefits">
+        <div><span>✓</span><b>8 section</b><small>Terstruktur</small></div>
+        <div><span>✓</span><b>Live preview</b><small>Real-time</small></div>
+        <div><span>✓</span><b>Word + PDF</b><small>Export ready</small></div>
+      </section>
+      <section id="gallery" class="gallery">
+        <p class="muted">Memuat template…</p>
+      </section>
+    </main>
+
+    <main id="page-editor" class="page">
+      <header class="editor-topbar">
+        <div class="editor-title">
+          <button
+            class="icon-btn"
+            id="btn-back"
+            aria-label="Kembali ke template">
+            ←
+          </button>
+          <div>
+            <span class="section-kicker">CV BUILDER</span>
+            <h1>Build your resume</h1>
+          </div>
+        </div>
+        <div class="seg" id="seg" aria-label="Tampilan editor">
+          <button data-v="form" class="on">Editor</button
+          ><button data-v="prev">Preview CV</button>
+        </div>
+        <div class="editor-actions">
+          <button class="btn secondary compact" id="btn-demo">Muat Demo</button
+          ><button class="btn secondary compact" id="btn-export">Ekspor</button
+          ><button class="btn secondary compact" id="btn-import">Impor</button
+          ><button class="btn danger compact" id="btn-clear">Hapus Data</button
+          ><input
+            type="file"
+            id="file-import"
+            accept=".json,application/json"
+            hidden />
+        </div>
+      </header>
+
+      <div class="editor show-form" id="editor">
+        <aside class="col steps-panel" aria-label="Bagian CV">
+          <div class="steps-header">
+            <div>
+              <span class="section-kicker">PROGRESS</span
+              ><strong>CV completeness</strong>
+            </div>
+            <span class="progress-pill" id="pct">0%</span>
+          </div>
+          <div class="bar"><i id="bar"></i></div>
+          <p id="pinfo" class="progress-copy">0/3 bagian wajib selesai</p>
+          <nav class="steps" id="steps" aria-label="Bagian CV"></nav>
+        </aside>
+        <section class="col col-form editor-form-panel">
+          <div class="mobile-section-label">
+            <span>Current section</span
+            ><b id="mobile-section-name">Data Diri</b>
+          </div>
+          <div id="form"></div>
+          <div class="group helper-note" id="lang-note" hidden>
+            <div class="gh">Bahasa</div>
+            <p class="muted">
+              Kemampuan bahasa diisi di bagian Keahlian, mis. nama skill “Bahasa
+              Inggris”, level “Fluent”.
+            </p>
+            <button class="btn sm" data-step="3">Buka Keahlian</button>
+          </div>
+          <div class="stepnav">
+            <button class="btn secondary" id="btn-prev-step">← Kembali</button
+            ><button class="btn primary" id="btn-next-step">
+              Simpan &amp; Lanjut →
+            </button>
+          </div>
+        </section>
+        <section class="col col-prev editor-preview-panel">
+          <div class="preview-head">
+            <div>
+              <span class="section-kicker">LIVE PREVIEW</span>
+              <h2>Resume</h2>
+            </div>
+            <div class="preview-actions">
+              <select id="tpl-select" aria-label="Pilih template"></select
+              ><button class="btn primary compact" id="btn-docx">
+                Download Word</button
+              ><button class="btn secondary compact" id="btn-pdf">
+                Download PDF
+              </button>
+            </div>
+          </div>
+          <div class="prev-status muted" id="prev-status"></div>
+          <div class="paper" id="preview"></div>
+        </section>
+      </div>
+    </main>
+
+    <main id="page-tips" class="page tips-page">
+      <section class="tips-hero">
+        <div>
+          <span class="section-kicker">RESUME PLAYBOOK</span>
+          <h1>Tips & Tricks untuk CV yang lebih tajam.</h1>
+          <p>
+            Panduan praktis tentang ATS, penulisan pengalaman, summary, skills,
+            dan cara memakai AI tanpa menyerahkan seluruh otak ke chatbot.
+          </p>
+          <button class="btn primary" data-go="dash">Buat CV Gratis →</button>
+        </div>
+        <div class="tips-hero-card">
+          <div class="tips-score"><span>CV</span><b>ATS</b></div>
+          <div class="tips-hero-lines">
+            <i></i><i></i><i></i><i class="short"></i>
+          </div>
+          <div class="tips-check">✓ Structured content</div>
+          <div class="tips-check">✓ Relevant keywords</div>
+          <div class="tips-check">✓ Measurable results</div>
+        </div>
+      </section>
+      <section class="tips-layout">
+        <aside class="tips-index">
+          <span class="section-kicker">ON THIS PAGE</span
+          ><a href="#tips-ats">ATS Basics</a><a href="#tips-data">Data Diri</a
+          ><a href="#tips-edu">Pendidikan</a><a href="#tips-exp">Pengalaman</a
+          ><a href="#tips-skills">Keahlian</a><a href="#tips-summary">Summary</a
+          ><a href="#tips-ai">AI Prompting</a
+          ><a href="#tips-dodont">Do & Don't</a><a href="#tips-faq">FAQ</a>
+        </aside>
+        <div id="tips-body" class="tips-body">
+          <section id="tips-ats" class="tips-intro-card">
+            <span class="section-kicker">01 · FOUNDATION</span>
+            <h2>CV ATS Basics</h2>
+            <p>
+              ATS membaca teks dan struktur dokumen. Prioritaskan informasi yang
+              jelas, heading standar, dan keyword yang memang relevan dengan
+              lowongan.
+            </p>
+            <div class="ats-points">
+              <div>
+                <b>01</b><span>Gunakan struktur sederhana dan konsisten.</span>
+              </div>
+              <div>
+                <b>02</b
+                ><span
+                  >Gunakan keyword dari job description secara natural.</span
+                >
+              </div>
+              <div>
+                <b>03</b
+                ><span
+                  >Utamakan hasil yang dapat dibuktikan daripada jargon.</span
+                >
+              </div>
+            </div>
+          </section>
+          <div class="tips-section-grid">
+            <section id="tips-data" class="group tips-content-card"></section>
+            <section id="tips-edu" class="group tips-content-card"></section>
+            <section id="tips-exp" class="group tips-content-card"></section>
+            <section id="tips-skills" class="group tips-content-card"></section>
+            <section
+              id="tips-summary"
+              class="group tips-content-card"></section>
+          </div>
+          <section id="tips-ai" class="ai-section">
+            <div class="section-heading">
+              <div>
+                <span class="section-kicker">AI PROMPTING</span>
+                <h2>Gunakan AI sebagai editor, bukan generator kebohongan.</h2>
+              </div>
+              <p>
+                Ganti placeholder [KURUNG] dengan data nyata. Jangan membiarkan
+                AI mengarang angka, jabatan, atau pengalaman.
+              </p>
+            </div>
+            <div class="ai-grid" id="ai-prompt-grid"></div>
+          </section>
+          <section id="tips-dodont" class="tips-do-section">
+            <div class="section-heading centered">
+              <span class="section-kicker">FINAL CHECK</span>
+              <h2>Do & Don't</h2>
+            </div>
+            <div id="tips-dodont-grid" class="do-grid"></div>
+          </section>
+          <section id="tips-faq" class="tips-faq">
+            <div class="section-heading centered">
+              <span class="section-kicker">FAQ</span>
+              <h2>Masih ada yang mengganjal?</h2>
+            </div>
+            <div id="tips-faq-list"></div>
+          </section>
+        </div>
+      </section>
+      <section class="tips-final">
+        <span class="section-kicker">NEXT STEP</span>
+        <h2>Berhenti membaca tentang CV. Buat satu.</h2>
+        <p>
+          Template sudah tersedia. Sekarang bagian manusia tinggal mengisi
+          datanya.
+        </p>
+        <button class="btn primary" data-go="dash">Buat CV Gratis →</button>
+      </section>
+    </main>
+
+    <div class="overlay" id="modal">
+      <div class="modal">
+        <div class="modal-icon">!</div>
+        <h3>Hapus semua data?</h3>
+        <p>
+          Seluruh isi form akan dikosongkan dan tidak dapat dikembalikan. Ekspor
+          JSON dulu jika perlu cadangan.
+        </p>
+        <button class="btn danger fill" id="modal-ok">Ya, Hapus</button
+        ><button class="btn fill" id="modal-cancel">Batal</button>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
