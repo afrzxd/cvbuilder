@@ -701,7 +701,12 @@ function demo() {
           "Memimpin tim legal dalam uji tuntas atas aspek korporasi, perizinan, aset tanah, kontrak material, ketenagakerjaan, dan perkara target akuisisi.\nMenyusun laporan due diligence, perjanjian jual beli saham (SPA), serta perubahan anggaran dasar hingga persetujuan Kemenkumham.",
       },
       {
+<<<<<<< HEAD
         nama_proyek: "Implementasi Kepatuhan Perlindungan Data Pribadi (UU PDP)",
+=======
+        nama_proyek:
+          "Implementasi Kepatuhan Perlindungan Data Pribadi (UU PDP)",
+>>>>>>> ea9786d (Update app.js and career_forward.html)
         pemberi_proyek: "PT Nusantara Manufaktur",
         periode_proyek: "2023 – 2024",
         tipe_proyek: "Compliance & Tata Kelola",
@@ -769,7 +774,9 @@ function demo() {
         tahun_pelatihan: "2022",
       },
     ],
+
     skills: [
+<<<<<<< HEAD
       { nama_skill: "Penyusunan & Negosiasi Kontrak", jenis_skill: "Advanced" },
       { nama_skill: "Hukum Perseroan & Aksi Korporasi", jenis_skill: "Advanced" },
       { nama_skill: "Legal Due Diligence", jenis_skill: "Advanced" },
@@ -780,6 +787,73 @@ function demo() {
       { nama_skill: "Hukum Kepailitan & PKPU", jenis_skill: "Intermediate" },
       { nama_skill: "Riset & Analisis Hukum", jenis_skill: "Advanced" },
       { nama_skill: "Mediasi & Penyelesaian Sengketa", jenis_skill: "Intermediate" },
+=======
+      {
+        nama_skill: "Penyusunan & Negosiasi Kontrak",
+        jenis_skill: "perjanjian komersial, addendum, term sheet, MoU",
+      },
+      {
+        nama_skill: "Hukum Perseroan & Aksi Korporasi",
+        jenis_skill: "RUPS, akta pendirian, merger, akuisisi, restrukturisasi",
+      },
+      {
+        nama_skill: "Legal Due Diligence",
+        jenis_skill:
+          "audit dokumen, kepatuhan legal, analisis risiko, uji tuntas",
+      },
+      {
+        nama_skill: "Litigasi Perdata & Arbitrase",
+        jenis_skill: "gugatan, jawaban, replik, duplik, mediasi",
+      },
+      {
+        nama_skill: "Kepatuhan Regulasi (Compliance)",
+        jenis_skill: "izin usaha, perizinan OSS, pelaporan, audit internal",
+      },
+      {
+        nama_skill: "Hukum Ketenagakerjaan",
+        jenis_skill: "PKWT, PKWTT, peraturan perusahaan, PHK, industrial",
+      },
+      {
+        nama_skill: "Perlindungan Data Pribadi (UU PDP)",
+        jenis_skill:
+          "privacy policy, consent form, audit data, mitigasi kebocoran",
+      },
+      {
+        nama_skill: "Hukum Kepailitan & PKPU",
+        jenis_skill:
+          "verifikasi piutang, proposal perdamaian, debitor, kreditor",
+      },
+      {
+        nama_skill: "Riset & Analisis Hukum",
+        jenis_skill:
+          "legal opinion, studi kasus, penafsiran undang-undang, yurisprudensi",
+      },
+      {
+        nama_skill: "Mediasi & Penyelesaian Sengketa",
+        jenis_skill:
+          "negoisasi, deal making, settlement agreement, non-litigasi",
+      },
+      {
+        nama_skill: "Hukum Perbankan & Keuangan",
+        jenis_skill: "regulasi OJK, fintech, pembiayaan, kredit komersial",
+      },
+      {
+        nama_skill: "Hukum Properti & Pertanahan",
+        jenis_skill: "AJB, sertifikat tanah, sengketa lahan, sewa-menyewa",
+      },
+      {
+        nama_skill: "Hukum Kekayaan Intelektual",
+        jenis_skill: "merek, hak cipta, paten, lisensi, sengketa HKI",
+      },
+      {
+        nama_skill: "Legal Opinion & Drafting",
+        jenis_skill: "analisis hukum, memo legal, rekomendasi kebijakan",
+      },
+      {
+        nama_skill: "Manajemen Risiko Hukum",
+        jenis_skill: "mitigasi risiko, audit kontrak, compliance review",
+      },
+>>>>>>> ea9786d (Update app.js and career_forward.html)
     ],
   });
 }
@@ -807,7 +881,8 @@ const IC = {
 };
 // status selesai per section (hanya membaca data, tidak mengubahnya)
 const DONE = [
-  () => !!(data.nama_lengkap.trim() && data.telepon.trim() && data.email.trim()),
+  () =>
+    !!(data.nama_lengkap.trim() && data.telepon.trim() && data.email.trim()),
   () => data.pendidikan.length > 0,
   () => data.pengalaman.length > 0,
   () => data.skills.length > 0,
@@ -822,7 +897,11 @@ function buildSteps() {
     `<div class="prog"><div class="pt"><b>Progres CV</b><span id="pct">0%</span></div><div class="bar"><i id="bar"></i></div><small id="pinfo"></small></div><div class="stepl"><i class="ind"></i>` +
     STEPS.map(
       ([l, , ic, rq], i) =>
-        `<button data-step="${i}"><svg viewBox="0 0 24 24">${IC[ic]}</svg><span>${l}</span><em>${rq ? "" : "Opsional"}</em><u>✓</u></button>`
+        `<button data-step="${i}"><svg viewBox="0 0 24 24">${
+          IC[ic]
+        }</svg><span>${l}</span><em>${
+          rq ? "" : "Opsional"
+        }</em><u>✓</u></button>`
     ).join("") +
     `</div>`;
 }
@@ -836,9 +915,9 @@ function moveInd() {
 }
 function updateProgress() {
   if (!$("#bar")) return;
-  document.querySelectorAll("#steps .stepl button").forEach((b, i) =>
-    b.classList.toggle("done", DONE[i]())
-  );
+  document
+    .querySelectorAll("#steps .stepl button")
+    .forEach((b, i) => b.classList.toggle("done", DONE[i]()));
   const rq = STEPS.filter((s) => s[3]),
     n = rq.filter((s) => DONE[STEPS.indexOf(s)]()).length,
     pc = Math.round((n / rq.length) * 100);
@@ -893,9 +972,14 @@ new MutationObserver(() =>
     "busy",
     $("#prev-status").textContent.startsWith("Memperbarui")
   )
-).observe($("#prev-status"), { childList: true, characterData: true, subtree: true });
+).observe($("#prev-status"), {
+  childList: true,
+  characterData: true,
+  subtree: true,
+});
 $("#btn-pdf").onclick = () => {
-  if (!$("#preview .docx-wrapper")) return toast("Preview belum siap, coba sesaat lagi");
+  if (!$("#preview .docx-wrapper"))
+    return toast("Preview belum siap, coba sesaat lagi");
   print(); // pilih "Save as PDF" pada dialog cetak
 };
 document.addEventListener("click", (e) => {
@@ -916,34 +1000,132 @@ document.addEventListener("click", (e) => {
 
 /* ---------- Halaman Tips & Tricks ---------- */
 const TIPS = [
-  ["CV ATS Basics", ["Satu kolom, tanpa tabel, gambar, atau ikon — ATS sering salah membaca.", "Font standar (Calibri/Arial) ukuran 10–12 pt; heading jelas: Profile, Education, Experience, Skills.", "Gunakan kata kunci dari lowongan secara natural, jangan disisipkan tersembunyi.", "Simpan sebagai .docx atau PDF teks; hindari PDF hasil scan."]],
-  ["Tips Data Diri", ["Cukup nama, telepon, email profesional, kota, dan LinkedIn.", "Tidak perlu foto, usia, status pernikahan, atau alamat lengkap.", "Pastikan email berformat nama sendiri, bukan nama panggilan."]],
-  ["Tips Pendidikan", ["Urutkan dari yang terbaru; tulis institusi, jurusan, gelar, dan periode.", "Cantumkan IPK jika ≥ 3.00.", "Fresh graduate: tambahkan skripsi, proyek, atau prestasi di Deskripsi."]],
-  ["Tips Pengalaman Kerja", ["Satu baris = satu pencapaian, diawali kata kerja aksi.", "Tambahkan angka: jumlah, persen, waktu, atau biaya.", "Rumus: Aksi + Konteks + Hasil terukur.", "3–5 poin per posisi sudah cukup."]],
-  ["Tips Keahlian", ["Pisahkan hard skill dan soft skill; utamakan yang diminta lowongan.", "Gunakan nama resmi tool (mis. Microsoft Excel, bukan “Office”).", "Bahasa asing: isi di Keahlian, mis. “Bahasa Inggris : Fluent”."]],
-  ["Tips Summary / About Me", ["2–4 kalimat: profesi, lama pengalaman, keahlian utama, nilai yang dibawa.", "Sesuaikan dengan posisi yang dilamar.", "Hindari klise seperti “pekerja keras dan team player” tanpa bukti."]],
+  [
+    "CV ATS Basics",
+    [
+      "Satu kolom, tanpa tabel, gambar, atau ikon — ATS sering salah membaca.",
+      "Font standar (Calibri/Arial) ukuran 10–12 pt; heading jelas: Profile, Education, Experience, Skills.",
+      "Gunakan kata kunci dari lowongan secara natural, jangan disisipkan tersembunyi.",
+      "Simpan sebagai .docx atau PDF teks; hindari PDF hasil scan.",
+    ],
+  ],
+  [
+    "Tips Data Diri",
+    [
+      "Cukup nama, telepon, email profesional, kota, dan LinkedIn.",
+      "Tidak perlu foto, usia, status pernikahan, atau alamat lengkap.",
+      "Pastikan email berformat nama sendiri, bukan nama panggilan.",
+    ],
+  ],
+  [
+    "Tips Pendidikan",
+    [
+      "Urutkan dari yang terbaru; tulis institusi, jurusan, gelar, dan periode.",
+      "Cantumkan IPK jika ≥ 3.00.",
+      "Fresh graduate: tambahkan skripsi, proyek, atau prestasi di Deskripsi.",
+    ],
+  ],
+  [
+    "Tips Pengalaman Kerja",
+    [
+      "Satu baris = satu pencapaian, diawali kata kerja aksi.",
+      "Tambahkan angka: jumlah, persen, waktu, atau biaya.",
+      "Rumus: Aksi + Konteks + Hasil terukur.",
+      "3–5 poin per posisi sudah cukup.",
+    ],
+  ],
+  [
+    "Tips Keahlian",
+    [
+      "Pisahkan hard skill dan soft skill; utamakan yang diminta lowongan.",
+      "Gunakan nama resmi tool (mis. Microsoft Excel, bukan “Office”).",
+      "Bahasa asing: isi di Keahlian, mis. “Bahasa Inggris : Fluent”.",
+    ],
+  ],
+  [
+    "Tips Summary / About Me",
+    [
+      "2–4 kalimat: profesi, lama pengalaman, keahlian utama, nilai yang dibawa.",
+      "Sesuaikan dengan posisi yang dilamar.",
+      "Hindari klise seperti “pekerja keras dan team player” tanpa bukti.",
+    ],
+  ],
 ];
 const PROMPTS = [
-  ["Generate Summary", "Kamu adalah HR recruiter berpengalaman. Buatkan ringkasan profil CV 3 kalimat (bahasa Indonesia, ramah ATS) untuk posisi [POSISI]. Data saya: pengalaman [X tahun] di [BIDANG], keahlian utama [SKILL], pencapaian terbesar [ANGKA/HASIL]."],
-  ["Improve Experience", "Perbaiki poin pengalaman kerja berikut agar diawali kata kerja aksi, ringkas, dan memuat hasil terukur. Jangan mengarang angka; beri tanda [ISI ANGKA] bila datanya kurang. Format: satu poin per baris.\n\n[TEMPEL DESKRIPSI PEKERJAAN]"],
-  ["Generate Skills", "Dari deskripsi lowongan berikut, daftar 10–15 hard skill dan tool yang paling sering muncul. Lalu cocokkan dengan daftar keahlian saya dan tunjukkan mana yang belum ada.\n\nLowongan: [TEMPEL]\nKeahlian saya: [TEMPEL]"],
-  ["Review CV", "Review CV saya untuk posisi [POSISI] sebagai spesialis ATS. Nilai kecocokan kata kunci, kejelasan pencapaian, dan struktur. Beri 5 perbaikan paling berdampak, urut prioritas.\n\nCV: [TEMPEL]\nLowongan: [TEMPEL]"],
+  [
+    "Generate Summary",
+    "Kamu adalah HR recruiter berpengalaman. Buatkan ringkasan profil CV 3 kalimat (bahasa Indonesia, ramah ATS) untuk posisi [POSISI]. Data saya: pengalaman [X tahun] di [BIDANG], keahlian utama [SKILL], pencapaian terbesar [ANGKA/HASIL].",
+  ],
+  [
+    "Improve Experience",
+    "Perbaiki poin pengalaman kerja berikut agar diawali kata kerja aksi, ringkas, dan memuat hasil terukur. Jangan mengarang angka; beri tanda [ISI ANGKA] bila datanya kurang. Format: satu poin per baris.\n\n[TEMPEL DESKRIPSI PEKERJAAN]",
+  ],
+  [
+    "Generate Skills",
+    "Dari deskripsi lowongan berikut, daftar 10–15 hard skill dan tool yang paling sering muncul. Lalu cocokkan dengan daftar keahlian saya dan tunjukkan mana yang belum ada.\n\nLowongan: [TEMPEL]\nKeahlian saya: [TEMPEL]",
+  ],
+  [
+    "Review CV",
+    "Review CV saya untuk posisi [POSISI] sebagai spesialis ATS. Nilai kecocokan kata kunci, kejelasan pencapaian, dan struktur. Beri 5 perbaikan paling berdampak, urut prioritas.\n\nCV: [TEMPEL]\nLowongan: [TEMPEL]",
+  ],
 ];
 const DD = [
-  ["Do", ["Tailor CV per lowongan", "Pakai angka & hasil", "Cek ejaan dan konsistensi format tanggal", "Maksimal 1–2 halaman"]],
-  ["Don't", ["Tabel, kolom ganda, atau grafik skill", "Foto dan data pribadi berlebihan", "Menyalin mentah hasil AI tanpa dicek", "Kata kunci fiktif yang tidak Anda kuasai"]],
+  [
+    "Do",
+    [
+      "Tailor CV per lowongan",
+      "Pakai angka & hasil",
+      "Cek ejaan dan konsistensi format tanggal",
+      "Maksimal 1–2 halaman",
+    ],
+  ],
+  [
+    "Don't",
+    [
+      "Tabel, kolom ganda, atau grafik skill",
+      "Foto dan data pribadi berlebihan",
+      "Menyalin mentah hasil AI tanpa dicek",
+      "Kata kunci fiktif yang tidak Anda kuasai",
+    ],
+  ],
 ];
 const TFAQ = [
-  ["Apakah aman memakai AI untuk CV?", "Aman selama Anda memeriksa hasilnya. Jangan masukkan nomor KTP atau data sensitif ke prompt."],
-  ["Berapa panjang CV ideal?", "Satu halaman untuk fresh graduate, maksimal dua halaman untuk yang berpengalaman."],
+  [
+    "Apakah aman memakai AI untuk CV?",
+    "Aman selama Anda memeriksa hasilnya. Jangan masukkan nomor KTP atau data sensitif ke prompt.",
+  ],
+  [
+    "Berapa panjang CV ideal?",
+    "Satu halaman untuk fresh graduate, maksimal dua halaman untuk yang berpengalaman.",
+  ],
 ];
 $("#tips-body").innerHTML =
-  TIPS.map(([t, l]) => `<section class="group"><div class="gh">${t}</div><ul>${l.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></section>`).join("") +
+  TIPS.map(
+    ([t, l]) =>
+      `<section class="group"><div class="gh">${t}</div><ul>${l
+        .map((x) => `<li>${esc(x)}</li>`)
+        .join("")}</ul></section>`
+  ).join("") +
   `<h2 class="sech">AI Prompting</h2><p class="muted">Ganti teks dalam [KURUNG] dengan data Anda.</p><div class="grid">` +
-  PROMPTS.map(([t, p]) => `<section class="group"><div class="gh">${t}</div><pre>${esc(p)}</pre><button class="btn sm" data-copy>Salin Prompt</button></section>`).join("") +
+  PROMPTS.map(
+    ([t, p]) =>
+      `<section class="group"><div class="gh">${t}</div><pre>${esc(
+        p
+      )}</pre><button class="btn sm" data-copy>Salin Prompt</button></section>`
+  ).join("") +
   `</div><h2 class="sech">Do &amp; Don't</h2><div class="grid">` +
-  DD.map(([t, l]) => `<section class="group dd ${t === "Do" ? "yes" : "no"}"><div class="gh">${t}</div><ul>${l.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></section>`).join("") +
+  DD.map(
+    ([t, l]) =>
+      `<section class="group dd ${
+        t === "Do" ? "yes" : "no"
+      }"><div class="gh">${t}</div><ul>${l
+        .map((x) => `<li>${esc(x)}</li>`)
+        .join("")}</ul></section>`
+  ).join("") +
   `</div><h2 class="sech">FAQ</h2>` +
-  TFAQ.map(([q, a]) => `<details class="group"><summary>${q}</summary><p class="muted">${a}</p></details>`).join("");
+  TFAQ.map(
+    ([q, a]) =>
+      `<details class="group"><summary>${q}</summary><p class="muted">${a}</p></details>`
+  ).join("");
 
 initTemplates();

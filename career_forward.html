@@ -1,0 +1,3349 @@
+<!DOCTYPE html>
+    <html lang="id">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Modul pembelajaran interaktif AI untuk karier, personal branding, pencarian kerja, CV, dan wawancara." />
+        <meta name="theme-color" content="#1B5E96" />
+        <title>Career Forward — Modul Karier Berbasis AI</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><style>
+:root{--bg:#F6F7F9;--ink:#1A2230;--ink-2:#414C5E;--mute:#697487;--line:#E2E6EC;--line-2:#EEF0F4;--accent:#1B5E96;--accent-soft:#E9F1F9;--ok:#1E6B47;--ok-soft:#E7F4EC;--warn:#8A5A00;--warn-soft:#FDF3DF;--risk:#A12B2B;--risk-soft:#FBEAE8;--ai:#4A3F9F;--ai-soft:#EFEDFA;--side:296px;--top:56px;--r:12px}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.8 "Plus Jakarta Sans",Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.topbar{position:fixed;inset:0 0 auto 0;height:var(--top);z-index:50;display:flex;align-items:center;gap:16px;padding:0 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.brand{display:flex;align-items:center;gap:10px;width:calc(var(--side) - 20px)}
+.brand-mark{width:32px;height:32px;display:grid;place-items:center;border-radius:8px;background:var(--accent);color:#fff;font-weight:700;font-size:13px}
+.brand-copy{display:flex;flex-direction:column;line-height:1.2}
+.brand-copy strong{font-size:14px}
+.brand-copy span{font-size:12px;color:var(--mute)}
+.topbar-progress{flex:1;max-width:420px;margin-left:auto}
+.progress-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);line-height:1;margin-bottom:6px}
+.progress-track{height:4px;border-radius:9px;background:var(--line-2);overflow:hidden}
+.progress-fill{width:0;height:100%;background:var(--accent);transition:width .3s}
+.top-actions{display:flex;gap:6px}
+.icon-button,.mobile-menu-button{width:36px;height:36px;display:grid;place-items:center;padding:0;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink-2)}
+.mobile-menu-button{display:none}
+
+.app-shell{padding-top:var(--top);padding-left:var(--side)}
+.sidebar{position:fixed;top:var(--top);left:0;bottom:0;width:var(--side);overflow-y:auto;padding:24px 14px 32px;background:#fff;border-right:1px solid var(--line);z-index:40}
+.sidebar-label{padding:0 10px 10px;font-size:13px;font-weight:700;color:var(--mute)}
+.nav-group{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line-2)}
+.nav-item{width:100%;display:grid;grid-template-columns:28px minmax(0,1fr) 18px;gap:8px;align-items:start;padding:9px 10px;border:0;border-radius:9px;background:none;text-align:left;line-height:1.35}
+.nav-item:hover{background:var(--bg)}
+.nav-item.active{background:var(--accent-soft)}
+.nav-number{font-size:13px;font-weight:600;color:var(--mute);padding-top:1px}
+.nav-copy strong{display:block;font-size:14px;font-weight:600}
+.nav-copy span{font-size:12.5px;color:var(--mute)}
+.nav-status{font-size:13px;color:var(--mute);text-align:center}
+.nav-item.active .nav-number,.nav-item.active .nav-copy strong{color:var(--accent)}
+.nav-item.done .nav-status{color:var(--ok);font-weight:700}
+.toc-chapters{display:none;list-style:none;margin:2px 0 8px 27px;padding:0 0 0 12px;border-left:2px solid var(--line)}
+.nav-item.active+.toc-chapters{display:block}
+.toc-chapters a{display:block;margin-left:-14px;padding:5px 8px 5px 12px;border-left:2px solid transparent;border-radius:0 6px 6px 0;font-size:13px;line-height:1.45;color:var(--ink-2);text-decoration:none}
+.toc-chapters a:hover{color:var(--ink)}
+.toc-chapters a.current{border-left-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:600}
+.sidebar-card{margin-top:8px;padding:14px;border-radius:10px;background:var(--risk-soft);font-size:13px;line-height:1.6}
+.sidebar-card strong{display:block;margin-bottom:4px;color:var(--risk)}
+.sidebar-card p{margin:0}
+.sidebar-backdrop{display:none}
+
+.main{min-width:0;padding:0 32px}
+.page{display:none;max-width:740px;margin:0 auto;padding:56px 0 24px}
+.page.active{display:block}
+.hero,.module-hero{margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+.hero h1,.module-hero h1{margin:0 0 16px;font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-.02em;font-weight:800}
+.hero p,.module-hero p{margin:0 0 20px;color:var(--ink-2);font-size:18px}
+.eyebrow,.module-number{display:inline-block;margin-bottom:12px;font-size:14px;font-weight:600;color:var(--accent)}
+.module-number::before{content:"Modul "}
+#page-quiz .module-number::before{content:none}
+.learning-outcomes,.hero-actions{display:flex;flex-wrap:wrap;gap:8px}
+.outcome-pill,.tag{display:inline-block;padding:2px 12px;border-radius:99px;background:var(--accent-soft);color:var(--accent);font-size:13.5px;font-weight:600;line-height:1.7}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border:1px solid transparent;border-radius:10px;font-weight:600;font-size:15px;line-height:1.4;transition:background .15s,border-color .15s}
+.btn-primary,.btn-light{background:var(--accent);color:#fff}
+.btn-primary:hover,.btn-light:hover{background:#154C7A}
+.btn-secondary,.btn-ghost-light{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-secondary:hover,.btn-ghost-light:hover{border-color:var(--mute)}
+
+.chapter{padding:48px 0;border-top:1px solid var(--line);scroll-margin-top:76px}
+.chapter:first-child{padding-top:0;border-top:0}
+.chapter-header{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;margin-bottom:24px}
+.chapter-icon{padding:2px 9px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-size:14px;font-weight:700}
+.chapter-header>span:nth-child(2) strong{display:block;font-size:26px;line-height:1.3;letter-spacing:-.015em;font-weight:700}
+.chapter-header>span:nth-child(2)>span{display:block;margin-top:4px;color:var(--mute);font-size:16px;line-height:1.6}
+.chapter-body>:first-child{margin-top:0}
+.chapter-body p{margin:0 0 18px}
+.chapter-body h3{margin:36px 0 10px;font-size:20px;line-height:1.4}
+.chapter-body h4{margin:26px 0 8px;font-size:17px}
+.chapter-body ul,.chapter-body ol{margin:0 0 20px;padding-left:24px}
+.chapter-body li{margin-bottom:8px}
+.highlight{box-shadow:inset 0 -.45em 0 #DCEAF7}
+
+.callout,.prompting{margin:26px 0;padding:16px 20px;border-left:4px solid var(--accent);border-radius:0 var(--r) var(--r) 0;background:var(--accent-soft);font-size:16px;line-height:1.75}
+.callout::before,.prompting::before{display:block;margin-bottom:4px;font-size:13.5px;font-weight:700;color:var(--accent)}
+.callout::before{content:"Catatan penting"}
+.callout.success{border-color:var(--ok);background:var(--ok-soft)}
+.callout.success::before{content:"Tips";color:var(--ok)}
+.callout.warning{border-color:var(--warn);background:var(--warn-soft)}
+.callout.warning::before{content:"Perhatian";color:var(--warn)}
+.callout.security{border-color:var(--risk);background:var(--risk-soft)}
+.callout.security::before{content:"Keamanan data";color:var(--risk)}
+.prompting{border-color:var(--ai);background:var(--ai-soft)}
+.prompting::before{content:"Tips AI";color:var(--ai)}
+
+.info-card,.case-study,.metric{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.info-card strong,.metric strong{display:block;margin-bottom:4px;line-height:1.4}
+.info-card p,.case-study p{margin:0 0 8px;font-size:16px}
+.info-card>:last-child,.case-study>:last-child{margin-bottom:0}
+.card-grid,.three-grid,.compare-grid,.overview-grid{display:grid;gap:14px;margin:24px 0}
+.card-grid,.compare-grid,.overview-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.three-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.case-study{background:var(--bg);border-style:dashed}
+.case-label{display:block;margin-bottom:6px;font-size:13.5px;font-weight:700;color:var(--accent)}
+.metric strong{font-size:26px;letter-spacing:-.02em}
+.prompt-box{margin:24px 0 10px;overflow:hidden;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.prompt-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 16px;border-bottom:1px solid var(--line);background:var(--bg);font-size:14px;font-weight:600;color:var(--ink-2)}
+.copy-button{padding:5px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;font-weight:600}
+.copy-button.copied{border-color:var(--ok);color:var(--ok)}
+.prompt-body{padding:16px 18px;white-space:pre-wrap;font-size:15.5px;line-height:1.7;color:var(--ink-2)}
+.table-wrap{margin:24px 0;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.6}
+th,td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-2)}
+th{background:var(--bg);font-size:14px;font-weight:700}
+tr:last-child td{border-bottom:0}
+
+.section-heading{margin:44px 0 16px}
+.section-heading h2{margin:0 0 6px;font-size:24px;line-height:1.3}
+.kicker{font-size:14px;font-weight:600;color:var(--accent)}
+#courseMap{scroll-margin-top:76px}
+.module-index{display:grid;margin:0 0 24px;border-top:1px solid var(--line)}
+.module-card{position:relative;padding:18px 0 18px 56px;border-bottom:1px solid var(--line)}
+.module-card::before{content:attr(data-number);position:absolute;left:0;top:18px;width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:14px}
+.module-card h3{margin:0 0 4px;font-size:18px;line-height:1.4}
+.module-card p{margin:0 0 10px;color:var(--mute);font-size:15.5px;line-height:1.65}
+
+.completion-card{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:48px;padding:20px 22px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.completion-card strong{display:block}
+.completion-card span{color:var(--mute);font-size:15px;line-height:1.6}
+.btn-success{flex:none;border:1.5px solid var(--ok);background:#fff;color:var(--ok)}
+.btn-success::before{content:"";width:16px;height:16px;flex:none;border:1.5px solid currentColor;border-radius:4px}
+.btn-success.is-done{background:var(--ok);color:#fff}
+.btn-success.is-done::before{content:"✓";display:grid;place-items:center;font-size:12px;line-height:1}
+
+.page-nav{display:flex;justify-content:space-between;gap:14px;margin-top:20px}
+.page-nav .btn{flex-direction:column;align-items:flex-start;gap:2px;max-width:48%;padding:12px 18px;text-align:left}
+.page-nav .btn-primary{align-items:flex-end;margin-left:auto;text-align:right}
+.page-nav small{font-size:12.5px;font-weight:500;opacity:.8}
+.page-nav .btn-secondary small::before{content:"← "}
+.page-nav .btn-primary small::after{content:" →"}
+
+.quiz-intro{margin-bottom:28px;padding:16px 20px;border-radius:var(--r);background:var(--accent-soft);font-size:16px}
+.quiz-card{margin-bottom:22px;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.quiz-card h3{margin:0 0 16px;font-size:18px;line-height:1.55}
+.option{display:flex;align-items:flex-start;gap:12px;margin-top:8px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:16px;line-height:1.6;cursor:pointer;transition:border-color .15s,background .15s}
+.option:hover{border-color:var(--accent)}
+.option input{flex:none;margin:5px 0 0;accent-color:var(--accent)}
+.quiz-card.answered .option{cursor:default}
+.quiz-card.answered .option:hover{border-color:var(--line)}
+.option.is-correct,.option.is-correct:hover{border-color:var(--ok);background:var(--ok-soft)}
+.option.is-wrong,.option.is-wrong:hover{border-color:var(--risk);background:var(--risk-soft)}
+.option.is-correct::after,.option.is-wrong::after{flex:none;margin-left:auto;padding-left:12px;font-size:13px;font-weight:700;white-space:nowrap}
+.option.is-correct::after{content:"Jawaban benar";color:var(--ok)}
+.option.is-wrong::after{content:"Pilihan Anda";color:var(--risk)}
+.quiz-feedback{display:none;margin-top:16px;padding:14px 16px;border-radius:10px;background:var(--bg);font-size:15.5px;line-height:1.7}
+.quiz-card.answered .quiz-feedback{display:block}
+.quiz-card.correct .quiz-feedback::before{content:"Tepat. ";font-weight:700;color:var(--ok)}
+.quiz-card.incorrect .quiz-feedback::before{content:"Belum tepat. ";font-weight:700;color:var(--risk)}
+.score-panel{display:none;position:sticky;bottom:16px;margin:24px 0;padding:16px 20px;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:0 6px 20px rgba(26,34,48,.1)}
+.score-panel.show{display:block}
+.score-panel strong{font-size:20px}
+.score-panel p{margin:2px 0 0;color:var(--ink-2);font-size:15.5px;line-height:1.6}
+.certificate-card{display:none;margin-bottom:24px;padding:22px 24px;border-radius:var(--r);background:var(--ok-soft)}
+.certificate-card.show{display:block}
+.certificate-card h2{margin:8px 0 6px;font-size:21px}
+.certificate-card p{margin:0;font-size:16px}
+
+.footer{max-width:740px;margin:24px auto 0;padding:24px 0 48px;border-top:1px solid var(--line);color:var(--mute);font-size:14px;line-height:1.7}
+.toast{position:fixed;left:50%;bottom:24px;z-index:80;padding:10px 18px;border-radius:10px;background:var(--ink);color:#fff;font-size:14px;opacity:0;pointer-events:none;transform:translate(-50%,20px);transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:980px){
+.app-shell{padding-left:0}
+.main{padding:0 20px}
+.page{padding-top:36px}
+.mobile-menu-button{display:grid}
+.brand{width:auto}
+.brand-copy span{display:none}
+.sidebar{width:min(320px,86vw);transform:translateX(-100%);transition:transform .2s}
+.sidebar.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.2)}
+.sidebar-backdrop.show{display:block;position:fixed;inset:var(--top) 0 0 0;z-index:39;background:rgba(26,34,48,.4)}
+}
+@media(max-width:600px){
+body{font-size:16.5px}
+.topbar{gap:10px;padding:0 14px}
+.topbar-progress{max-width:none}
+.progress-meta span:first-child{display:none}
+.chapter{padding:36px 0}
+.chapter-header>span:nth-child(2) strong{font-size:22px}
+.completion-card{flex-direction:column;align-items:stretch}
+.page-nav .btn{flex:1;max-width:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{
+.topbar,.sidebar,.page-nav,.completion-card,.score-panel{display:none!important}
+.app-shell{padding:0}
+.page{display:block!important;max-width:none;break-after:page}
+body{background:#fff;font-size:12pt}
+.callout,.prompting,.prompt-box{break-inside:avoid}
+}
+</style>
+      </head>
+      <body>
+        <header class="topbar">
+          <button
+            class="mobile-menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Buka navigasi">
+            ☰
+          </button>
+          <div class="brand">
+            <div class="brand-mark">CF</div>
+            <div class="brand-copy">
+              <strong>Career Forward</strong>
+              <span>Modul bacaan mandiri</span>
+            </div>
+          </div>
+
+          <div class="topbar-progress" aria-label="Progres baca">
+            <div class="progress-meta">
+              <span>Progres baca</span>
+              <span id="progressLabel">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <button
+              class="icon-button"
+              id="printButton"
+              type="button"
+              title="Cetak modul"
+              aria-label="Cetak modul">
+              ⎙
+            </button>
+            <button
+              class="icon-button"
+              id="resetButton"
+              type="button"
+              title="Reset progres"
+              aria-label="Reset progres">
+              ↺
+            </button>
+          </div>
+        </header>
+
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <div class="app-shell">
+          <aside class="sidebar" id="sidebar">
+            <div class="sidebar-label">Daftar isi</div>
+
+            <div class="nav-group">
+              <button
+                class="nav-item active"
+                type="button"
+                data-page-target="home">
+                <span class="nav-number">00</span>
+                <span class="nav-copy"
+                  ><strong>Mulai di Sini</strong
+                  ><span>Orientasi & daftar isi</span></span
+                >
+                <span class="nav-status">•</span>
+              </button>
+            </div>
+
+            <div class="nav-group">
+              <button class="nav-item" type="button" data-page-target="module1">
+                <span class="nav-number">01</span>
+                <span class="nav-copy"
+                  ><strong>Kejelasan Karier</strong
+                  ><span>Kekuatan, arah, CTF</span></span
+                >
+                <span class="nav-status">○</span>
+              </button>
+              <button class="nav-item" type="button" data-page-target="module2">
+                <span class="nav-number">02</span>
+                <span class="nav-copy"
+                  ><strong>Personal Branding</strong
+                  ><span>LinkedIn & bukti profesional</span></span
+                >
+                <span class="nav-status">○</span>
+              </button>
+              <button class="nav-item" type="button" data-page-target="module3">
+                <span class="nav-number">03</span>
+                <span class="nav-copy"
+                  ><strong>Pencarian Kerja</strong
+                  ><span>Peluang & networking</span></span
+                >
+                <span class="nav-status">○</span>
+              </button>
+              <button class="nav-item" type="button" data-page-target="module4">
+                <span class="nav-number">04</span>
+                <span class="nav-copy"
+                  ><strong>Paket Lamaran</strong
+                  ><span>CV, portofolio, cover letter</span></span
+                >
+                <span class="nav-status">○</span>
+              </button>
+              <button class="nav-item" type="button" data-page-target="module5">
+                <span class="nav-number">05</span>
+                <span class="nav-copy"
+                  ><strong>Persiapan Wawancara</strong
+                  ><span>STAR & simulasi AI</span></span
+                >
+                <span class="nav-status">○</span>
+              </button>
+            </div>
+
+            <div class="nav-group">
+              <button class="nav-item" type="button" data-page-target="quiz">
+                <span class="nav-number">✓</span>
+                <span class="nav-copy"
+                  ><strong>Latihan Akhir</strong
+                  ><span>12 soal latihan</span></span
+                >
+                <span class="nav-status">○</span>
+              </button>
+            </div>
+
+            <div class="sidebar-card">
+              <strong>Privasi lebih dulu</strong>
+              <p>
+                Jangan masukkan data pribadi, data rahasia organisasi, atau
+                dokumen sensitif ke alat AI tanpa pemeriksaan dan anonimisasi.
+              </p>
+            </div>
+          </aside>
+
+          <main class="main">
+            <section class="page active" id="page-home" data-page="home">
+              <div class="hero">
+                <div class="hero-content">
+                  <span class="eyebrow"
+                    >Modul bacaan mandiri: 5 modul, 15 bab</span
+                  >
+                  <h1>Bangun Arah Karier yang Lebih Jelas dengan AI.</h1>
+                  <p>
+                    Pelajari cara menggunakan AI sebagai mitra berpikir untuk
+                    mengeksplorasi karier, membangun identitas profesional,
+                    mencari peluang, menyiapkan paket lamaran, dan berlatih
+                    wawancara tanpa mengorbankan keaslian maupun keamanan data.
+                  </p>
+                  <div class="hero-actions">
+                    <button
+                      class="btn btn-light"
+                      type="button"
+                      data-goto="module1">
+                      Mulai membaca
+                    </button>
+                    <button
+                      class="btn btn-ghost-light"
+                      type="button"
+                      data-scroll-to="courseMap">
+                      Lihat daftar isi
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-wrap">
+                <div class="overview-grid">
+                  <div class="metric">
+                    <strong>5</strong><span>Modul inti</span>
+                  </div>
+                  <div class="metric">
+                    <strong>15</strong><span>Bab pembelajaran</span>
+                  </div>
+                  <div class="metric">
+                    <strong>12</strong><span>Soal evaluasi</span>
+                  </div>
+                  <div class="metric">
+                    <strong>Local</strong
+                    ><span>Progress disimpan di browser</span>
+                  </div>
+                </div>
+
+                <div class="content-narrow">
+                  <div class="section-heading">
+                    <span class="kicker">Cara menggunakan modul</span>
+                    <h2>
+                      Belajar dengan alur yang terstruktur, bukan sekadar
+                      membaca.
+                    </h2>
+                    <p>
+                      Setiap modul memiliki konsep, studi kasus, prompt yang
+                      dapat diadaptasi, aktivitas refleksi, dan tombol
+                      penyelesaian. Jawaban aktivitas tersimpan otomatis di
+                      perangkat ini menggunakan localStorage.
+                    </p>
+                  </div>
+
+                  <div class="three-grid">
+                    <div class="info-card">
+                      <h4>1. Pahami</h4>
+                      <p>
+                        Buka setiap bab dan pahami prinsipnya sebelum menyentuh
+                        prompt AI.
+                      </p>
+                    </div>
+                    <div class="info-card">
+                      <h4>2. Terapkan</h4>
+                      <p>
+                        Isi aktivitas dengan data yang aman dan bukti yang
+                        benar-benar Anda miliki.
+                      </p>
+                    </div>
+                    <div class="info-card">
+                      <h4>3. Verifikasi</h4>
+                      <p>
+                        Periksa output AI terhadap konteks nyata, lowongan
+                        aktual, dan fakta pengalaman Anda.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="callout warning">
+                    <strong>Catatan penting:</strong>
+                    AI dapat membantu menyusun, membandingkan, dan menantang
+                    cara berpikir Anda. AI tidak menggantikan penilaian manusia,
+                    riset pasar kerja, atau verifikasi fakta. Kebijakan
+                    penyimpanan dan penggunaan data berbeda antar layanan AI,
+                    jadi periksa kebijakan alat yang Anda gunakan sebelum
+                    memasukkan informasi sensitif.
+                  </div>
+                </div>
+
+                <div
+                  id="courseMap"
+                  class="section-heading"
+                  style="margin-top: 44px">
+                  <span class="kicker">Peta belajar</span>
+                  <h2>Lima tahap dari arah karier sampai wawancara.</h2>
+                </div>
+
+                <div class="module-index">
+                  <article class="module-card" data-number="01">
+                    <span class="tag">Fondasi</span>
+                    <h3>Kejelasan Karier & Pengembangan Profesional</h3>
+                    <p>
+                      Kenali kekuatan, preferensi, skill yang dapat ditransfer,
+                      serta cara memberi konteks yang tepat kepada AI.
+                    </p>
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-goto="module1">
+                      Buka modul
+                    </button>
+                  </article>
+                  <article class="module-card" data-number="02">
+                    <span class="tag">Positioning</span>
+                    <h3>Personal Branding & Optimasi LinkedIn</h3>
+                    <p>
+                      Bangun headline, About, kata kunci, dan bukti profesional
+                      yang konsisten dengan target karier.
+                    </p>
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-goto="module2">
+                      Buka modul
+                    </button>
+                  </article>
+                  <article class="module-card" data-number="03">
+                    <span class="tag">Opportunity</span>
+                    <h3>Pencarian Kerja, Evaluasi Peluang & Networking</h3>
+                    <p>
+                      Berpindah dari pencarian acak ke sistem yang dapat
+                      dilacak: temukan, nilai, hubungkan, tindak lanjuti.
+                    </p>
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-goto="module3">
+                      Buka modul
+                    </button>
+                  </article>
+                  <article class="module-card" data-number="04">
+                    <span class="tag">Application</span>
+                    <h3>CV, Portofolio & Surat Lamaran</h3>
+                    <p>
+                      Ubah pengalaman menjadi bukti yang mudah dipindai manusia
+                      dan sistem rekrutmen tanpa mengarang pencapaian.
+                    </p>
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-goto="module4">
+                      Buka modul
+                    </button>
+                  </article>
+                  <article class="module-card" data-number="05">
+                    <span class="tag">Interview</span>
+                    <h3>Persiapan Wawancara & Kepercayaan Diri</h3>
+                    <p>
+                      Bangun bank cerita STAR, lakukan simulasi berbasis peran,
+                      lalu evaluasi jawaban dengan rubrik sederhana.
+                    </p>
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      data-goto="module5">
+                      Buka modul
+                    </button>
+                  </article>
+                  <article class="module-card" data-number="✓">
+                    <span class="tag">Assessment</span>
+                    <h3>Latihan Akhir</h3>
+                    <p>
+                      Uji pemahaman lintas modul dan dapatkan skor otomatis.
+                      Nilai 75 atau lebih membuka status lulus.
+                    </p>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      data-goto="quiz">
+                      Mulai latihan
+                    </button>
+                  </article>
+                </div>
+
+                <div class="page-nav"><span></span><button class="btn btn-primary" type="button" data-goto="module1"><small>Lanjut</small><span>Modul 1: Kejelasan Karier</span></button></div>
+              </div>
+            </section>
+
+            <section class="page" id="page-module1" data-page="module1">
+              <div class="module-hero">
+                <div class="module-hero-inner">
+                  <div class="module-number">01</div>
+                  <h1>Kejelasan Karier & Jalur Pengembangan Profesional</h1>
+                  <p>
+                    Sebelum memperbaiki CV atau berburu lowongan, tentukan dulu
+                    arah yang cukup spesifik untuk membuat keputusan. Modul ini
+                    menjadikan AI sebagai alat refleksi dan pembanding, bukan
+                    mesin ramalan karier.
+                  </p>
+                  <div class="learning-outcomes">
+                    <span class="outcome-pill">Memetakan kekuatan</span>
+                    <span class="outcome-pill">Membedakan minat dan bukti</span>
+                    <span class="outcome-pill">Menggunakan CTF</span>
+                    <span class="outcome-pill">Menilai rekomendasi AI</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-wrap">
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">1.1</span>
+                    <span
+                      ><strong>Mengapa Kejelasan Karier Penting</strong
+                      ><span
+                        >Dari “cari kerja apa saja” menjadi hipotesis karier
+                        yang dapat diuji</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Kejelasan karier bukan berarti Anda harus mengetahui satu
+                      pekerjaan untuk sepuluh tahun ke depan. Kejelasan berarti
+                      Anda mempunyai
+                      <span class="highlight"
+                        >hipotesis yang cukup kuat untuk memilih tindakan
+                        berikutnya</span
+                      >: peran apa yang dituju, masalah apa yang ingin Anda
+                      selesaikan, dan bukti apa yang perlu dibangun.
+                    </p>
+                    <p>
+                      Di pasar kerja regional, jabatan yang sama dapat berarti
+                      pekerjaan yang berbeda. Karena itu, mengejar nama posisi
+                      tanpa memahami aktivitas hariannya mudah menghasilkan
+                      mismatch. Gunakan deskripsi pekerjaan untuk mencari pola
+                      tugas, alat, konteks industri, dan tingkat tanggung jawab.
+                    </p>
+
+                    <div class="case-study">
+                      <span class="case-label">Studi kasus adaptasi</span>
+                      <h4>
+                        Dina: banyak lamaran, sedikit cerita yang konsisten
+                      </h4>
+                      <p>
+                        Dina adalah lulusan baru dengan proyek kampus,
+                        pengalaman organisasi, dan kemampuan analitis yang cukup
+                        baik. Selama dua bulan ia melamar posisi operasional,
+                        pemasaran, customer service, dan data secara bersamaan.
+                        Setiap lamaran menggunakan narasi berbeda, sehingga
+                        profilnya tidak menunjukkan satu arah yang mudah
+                        dipahami.
+                      </p>
+                      <p>
+                        Setelah meninjau pengalaman, Dina menemukan pola: ia
+                        menikmati mengubah data kegiatan menjadi laporan,
+                        membuat dashboard sederhana, dan menjelaskan temuan
+                        kepada tim. Hipotesis kariernya kemudian dipersempit
+                        menjadi
+                        <strong>Junior Data Analyst / Operations Analyst</strong
+                        >. Ia tidak “mengunci hidupnya”. Ia hanya menciptakan
+                        fokus untuk eksperimen karier berikutnya.
+                      </p>
+                    </div>
+
+                    <h3>Tiga lapisan kejelasan</h3>
+                    <div class="three-grid">
+                      <div class="info-card">
+                        <h4>Energi</h4>
+                        <p>
+                          Aktivitas apa yang membuat Anda tetap tertarik setelah
+                          mengerjakannya berulang kali?
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Kemampuan</h4>
+                        <p>
+                          Apa yang sudah dapat Anda buktikan melalui proyek,
+                          tugas, magang, kerja, atau kontribusi?
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Pasar</h4>
+                        <p>
+                          Apakah organisasi benar-benar membutuhkan masalah yang
+                          ingin Anda bantu selesaikan?
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Saya ingin memperjelas arah karier saya.<br />
+                        Berikut informasi saya:<br />
+                        - Pendidikan:<br />
+                        - Pengalaman:<br />
+                        - Skill yang saya miliki:<br />
+                        - Aktivitas yang saya sukai:<br />
+                        - Proyek yang pernah saya kerjakan:<br />
+                        - Jenis pekerjaan yang pernah saya pertimbangkan:<br />
+                        <br />
+                        Bantu saya membuat 3 hipotesis karier yang realistis.
+                        Untuk setiap hipotesis, jelaskan:<br />
+                        1. Jenis role yang mungkin cocok.<br />
+                        2. Aktivitas utama role tersebut.<br />
+                        3. Skill saya yang sudah relevan.<br />
+                        4. Skill yang masih perlu dikembangkan.<br />
+                        5. Bukti pengalaman yang dapat mendukung pilihan
+                        tersebut.<br />
+                        6. Eksperimen kecil selama 30 hari untuk menguji apakah
+                        role tersebut benar-benar cocok.<br />
+                        <br />
+                        Jangan menentukan keputusan karier untuk saya. Gunakan
+                        informasi saya sebagai dasar analisis dan tandai bagian
+                        yang masih membutuhkan validasi.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Gunakan setelah mengisi pengalaman, skill, pendidikan,
+                      proyek, dan aktivitas yang pernah dilakukan agar AI
+                      membantu mengubah informasi tersebut menjadi beberapa
+                      hipotesis arah karier yang dapat diuji.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">1.2</span>
+                    <span
+                      ><strong>CTF: Context, Task, Format</strong
+                      ><span
+                        >Arsitektur prompt yang sederhana tetapi berguna</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Prompt “pekerjaan apa yang cocok untuk saya?” memaksa AI
+                      menebak hampir semuanya. Struktur CTF memperkecil ruang
+                      tebakan dengan tiga komponen:
+                      <strong>Context</strong> menjelaskan titik awal,
+                      <strong>Task</strong> mendefinisikan pekerjaan yang harus
+                      dilakukan AI, dan <strong>Format</strong> menentukan
+                      bentuk keluaran.
+                    </p>
+
+                    <div class="table-wrap">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Komponen</th>
+                            <th>Pertanyaan</th>
+                            <th>Contoh isi</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Context</td>
+                            <td>Siapa saya, apa bukti saya, apa batasannya?</td>
+                            <td>
+                              Lulusan TI, proyek Flutter, tertarik mobile, belum
+                              punya pengalaman full-time.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Task</td>
+                            <td>Apa yang harus dianalisis?</td>
+                            <td>
+                              Bandingkan skill saya dengan tiga role entry-level
+                              dan identifikasi gap.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Format</td>
+                            <td>Bagaimana hasil harus ditampilkan?</td>
+                            <td>
+                              Tabel: role, skill cocok, gap, bukti yang perlu
+                              dibangun, langkah 30 hari.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>Template CTF — eksplorasi karier</span
+                        ><button class="copy-button" type="button">
+                          Salin
+                        </button>
+                      </div>
+                      <div class="prompt-body">
+                        CONTEXT: Saya sedang berada pada tahap
+                        [mahasiswa/lulusan baru/profesional yang beralih
+                        karier].<br />
+                        Latar belakang saya: [bidang studi/pekerjaan].<br />
+                        Bukti pengalaman yang saya miliki: [proyek, tugas,
+                        magang, kerja, organisasi].<br />
+                        Aktivitas yang memberi energi: [daftar].<br />
+                        Aktivitas yang ingin saya minimalkan: [daftar].<br />
+                        Lokasi atau batasan saya: [lokasi, relokasi, remote,
+                        waktu belajar].<br />
+                        <br />
+                        TASK: Analisis 3 arah peran yang realistis berdasarkan
+                        bukti saya. Untuk setiap peran, jelaskan skill yang
+                        dapat ditransfer, gap utama, risiko mismatch, dan
+                        eksperimen kecil yang dapat saya lakukan dalam 30 hari
+                        untuk menguji kecocokan.<br />
+                        <br />
+                        FORMAT: Gunakan tabel dengan kolom: Peran | Mengapa
+                        relevan | Bukti yang sudah ada | Gap | Eksperimen 30
+                        hari. Akhiri dengan 5 pertanyaan refleksi. Jangan
+                        mengarang pengalaman atau data pasar yang tidak saya
+                        berikan.<br />
+                      </div>
+                    </div>
+
+                    <div class="callout">
+                      <strong>Perbaikan penting:</strong>
+                      meminta AI “memberi jawaban” sering kalah berguna
+                      dibanding meminta AI
+                      <strong
+                        >membandingkan hipotesis dan menunjukkan asumsi</strong
+                      >. Tujuannya bukan menerima satu rekomendasi, tetapi
+                      membuat keputusan Anda lebih transparan.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">1.3</span>
+                    <span
+                      ><strong
+                        >Menilai Output AI dengan Pertimbangan Manusia</strong
+                      ><span
+                        >Skill overlap, energi, pasar, kelayakan, geografis, dan
+                        keamanan data</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Rekomendasi AI adalah bahan analisis, bukan keputusan
+                      final. Model dapat menghasilkan informasi usang, mencampur
+                      konteks negara, atau menyatakan sesuatu dengan yakin
+                      padahal dasar faktanya lemah. Gunakan lima filter berikut
+                      sebelum bertindak.
+                    </p>
+
+                    <div class="card-grid">
+                      <div class="info-card">
+                        <h4>1. Skill overlap</h4>
+                        <p>
+                          Berapa banyak kompetensi inti yang sudah Anda
+                          buktikan, bukan sekadar pernah mendengar namanya?
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>2. Energy fit</h4>
+                        <p>
+                          Apakah aktivitas sehari-harinya sesuai preferensi
+                          kerja Anda, bukan hanya judulnya terdengar menarik?
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>3. Market signal</h4>
+                        <p>
+                          Verifikasi kebutuhan melalui lowongan nyata, situs
+                          perusahaan, laporan pasar, dan percakapan profesional.
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>4. Development feasibility</h4>
+                        <p>
+                          Apakah gap dapat dibangun dalam waktu yang realistis,
+                          atau peran itu membutuhkan lompatan pengalaman terlalu
+                          besar?
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>5. Geographic fit</h4>
+                        <p>
+                          Periksa lokasi, bahasa, izin kerja, biaya hidup, model
+                          kerja, dan kebutuhan relokasi.
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>6. Evidence quality</h4>
+                        <p>
+                          Tambahan baru: pisahkan klaim berbasis bukti dari
+                          dugaan AI. Tandai apa yang masih perlu diverifikasi.
+                        </p>
+                      </div>
+                    </div>
+
+                    <h3>Keamanan data sebelum menggunakan AI</h3>
+                    <div class="callout security">
+                      <strong
+                        >Jangan menganggap semua alat AI memiliki kebijakan data
+                        yang sama.</strong
+                      >
+                      Hindari memasukkan nomor identitas, alamat, nomor telepon,
+                      email pribadi, data klien, dokumen internal, kredensial,
+                      informasi keuangan non-publik, atau materi yang terikat
+                      NDA. Gunakan versi anonim dan baca kebijakan privasi alat
+                      yang dipakai.
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Saya sedang mempertimbangkan role berikut: [Tuliskan
+                        role].<br />
+                        Nilai informasi role tersebut menggunakan enam filter
+                        berikut:<br />
+                        1. Skill overlap<br />
+                        2. Energy fit<br />
+                        3. Market signal<br />
+                        4. Development feasibility<br />
+                        5. Geographic fit<br />
+                        6. Evidence quality<br />
+                        <br />
+                        Gunakan hanya informasi yang saya berikan.<br />
+                        Pisahkan antara fakta, asumsi, dan hal yang masih perlu
+                        saya verifikasi.<br />
+                        Berikan hasil dalam tabel: - Faktor - Temuan - Bukti -
+                        Hal yang perlu diverifikasi - Pertanyaan yang perlu saya
+                        jawab.<br />
+                        Jangan membuat keputusan karier untuk saya.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Gunakan untuk memeriksa hasil rekomendasi AI atau role
+                      yang sedang dipertimbangkan sebelum mengambil tindakan
+                      berdasarkan rekomendasi tersebut.
+                    </div>
+                  </div>
+                </article>
+
+                <div class="completion-card">
+                  <div>
+                    <strong>Selesai membaca Modul 1?</strong>
+                    <span
+                      >Tandai setelah Anda memiliki satu hipotesis peran, bukti
+                      pendukung, dan eksperimen 30 hari.</span
+                    >
+                  </div>
+                  <button
+                    class="btn btn-success mark-complete"
+                    type="button"
+                    data-module="module1">
+                    Tandai Sudah Dibaca
+                  </button>
+                </div>
+
+                <div class="page-nav"><button class="btn btn-secondary" type="button" data-goto="home"><small>Sebelumnya</small><span>Mulai di sini</span></button><button class="btn btn-primary" type="button" data-goto="module2"><small>Lanjut</small><span>Modul 2: Personal Branding</span></button></div>
+              </div>
+            </section>
+
+            <section class="page" id="page-module2" data-page="module2">
+              <div class="module-hero">
+                <div class="module-hero-inner">
+                  <div class="module-number">02</div>
+                  <h1>Personal Branding & Optimasi LinkedIn</h1>
+                  <p>
+                    Personal branding bukan aktivitas membuat diri terdengar
+                    lebih hebat dari kenyataan. Tujuannya adalah membantu orang
+                    memahami arah, kemampuan, bukti, dan kontribusi Anda dengan
+                    cepat.
+                  </p>
+                  <div class="learning-outcomes">
+                    <span class="outcome-pill">Recruiter scan</span>
+                    <span class="outcome-pill">Headline yang jelas</span>
+                    <span class="outcome-pill">About berbasis bukti</span>
+                    <span class="outcome-pill">Keyword alignment</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-wrap">
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">2.1</span>
+                    <span
+                      ><strong
+                        >Apa yang Perlu Terlihat dalam Pemindaian Awal</strong
+                      ><span
+                        >Fokus, bukti, kata kunci, dan konsistensi</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Perekrut bekerja dalam konteks waktu terbatas dan banyak
+                      kandidat. Karena itu, profil yang efektif harus bisa
+                      dipahami tanpa pembaca perlu menafsirkan maksud Anda.
+                      Prioritaskan informasi yang membantu seseorang menjawab
+                      empat pertanyaan:
+                      <strong
+                        >Anda menuju peran apa, apa yang sudah Anda buktikan,
+                        konteks apa yang relevan, dan apa langkah profesional
+                        berikutnya?</strong
+                      >
+                    </p>
+
+                    <h3>Sinyal penting pada profil</h3>
+                    <ol>
+                      <li>
+                        <strong>Headline:</strong> peran atau identitas
+                        profesional, kompetensi utama, dan konteks.
+                      </li>
+                      <li>
+                        <strong>About:</strong> arah + bukti + kontribusi, bukan
+                        kumpulan jargon.
+                      </li>
+                      <li>
+                        <strong>Experience / Projects:</strong> tindakan, alat,
+                        ruang lingkup, dan hasil.
+                      </li>
+                      <li>
+                        <strong>Skills:</strong> keterampilan yang relevan dan
+                        benar-benar dapat Anda jelaskan.
+                      </li>
+                      <li>
+                        <strong>Featured:</strong> bukti kerja seperti proyek,
+                        presentasi, artikel, demo, atau portofolio.
+                      </li>
+                      <li>
+                        <strong>Konsistensi:</strong> CV, LinkedIn, portofolio,
+                        dan target role menceritakan versi profesional yang
+                        sama.
+                      </li>
+                    </ol>
+
+                    <div class="compare-grid">
+                      <div class="info-card">
+                        <h4>Kurang jelas</h4>
+                        <p>
+                          “Fresh Graduate | Hard Worker | Fast Learner | Open to
+                          Work”
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Lebih informatif</h4>
+                        <p>
+                          “Junior Data Analyst | Excel, SQL, Power BI | Mengubah
+                          data operasional menjadi insight yang dapat
+                          ditindaklanjuti”
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="callout success">
+                      <strong>Prinsip:</strong> optimalkan profil agar mudah
+                      dipahami, bukan agar terdengar paling mengesankan. Klaim
+                      kecil yang dapat dibuktikan lebih kuat daripada gelar
+                      besar tanpa bukti.
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Analisis profil profesional saya berikut:<br />
+                        [Tuliskan headline, About, pengalaman, pendidikan,
+                        skill, dan proyek.]<br />
+                        <br />
+                        Bayangkan Anda melakukan pemindaian awal terhadap profil
+                        tersebut. Identifikasi:<br />
+                        1. Dalam 10 detik pertama, fokus profil saya terlihat
+                        sebagai apa?<br />
+                        2. Skill utama apa yang terlihat?<br />
+                        3. Bukti pengalaman apa yang paling kuat?<br />
+                        4. Bagian mana yang masih terlalu umum?<br />
+                        5. Keyword apa yang sudah relevan?<br />
+                        6. Keyword apa yang mungkin relevan tetapi belum
+                        memiliki bukti?<br />
+                        7. Apakah headline, About, dan Experience sudah
+                        konsisten?<br />
+                        <br />
+                        Jangan menambahkan pengalaman atau pencapaian yang tidak
+                        saya berikan.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Tempelkan isi profil LinkedIn Anda untuk mengetahui apakah
+                      fokus, bukti, keyword, dan pesan profesionalnya sudah
+                      mudah dipahami saat pemindaian awal.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">2.2</span>
+                    <span
+                      ><strong>Rumus Headline & Struktur About</strong
+                      ><span
+                        >Identitas, kemampuan, konteks, bukti, kontribusi</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <h3>Formula headline</h3>
+                    <p>
+                      <strong
+                        >[Peran/identitas] | [2–3 skill utama] | [konteks,
+                        audiens, atau jenis kontribusi]</strong
+                      >
+                    </p>
+
+                    <div class="card-grid">
+                      <div class="info-card">
+                        <h4>Fresh graduate</h4>
+                        <p>
+                          Junior Business Analyst | Excel, SQL, Process Mapping
+                          | Tertarik pada operasional dan continuous improvement
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Career switcher</h4>
+                        <p>
+                          Customer Operations → Digital Marketing | Customer
+                          Insight, Content Planning, Canva | Fokus pada customer
+                          journey
+                        </p>
+                      </div>
+                    </div>
+
+                    <h3>Struktur About tiga bagian</h3>
+                    <ol>
+                      <li>
+                        <strong>Identitas dan arah:</strong> siapa Anda sekarang
+                        dan bidang apa yang sedang dibangun.
+                      </li>
+                      <li>
+                        <strong>Bukti:</strong> proyek, alat, pengalaman, atau
+                        hasil yang mendukung arah tersebut.
+                      </li>
+                      <li>
+                        <strong>Kontribusi:</strong> jenis masalah atau tim yang
+                        ingin Anda bantu.
+                      </li>
+                    </ol>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>Prompt editor LinkedIn berbasis bukti</span
+                        ><button class="copy-button" type="button">
+                          Salin
+                        </button>
+                      </div>
+                      <div class="prompt-body">
+                        CONTEXT:<br />
+                        Target peran saya: [peran].<br />
+                        Latar belakang saya: [pendidikan/pekerjaan].<br />
+                        Bukti yang benar-benar saya miliki: - [bukti 1] - [bukti
+                        2] - [bukti 3]<br />
+                        Skill yang pernah saya gunakan: [skill].<br />
+                        Batasan: jangan menambahkan pengalaman, metrik,
+                        sertifikasi, jabatan, atau alat yang tidak saya
+                        sebutkan.<br />
+                        <br />
+                        TASK:<br />
+                        Susun 3 opsi headline LinkedIn dan 1 draft About yang
+                        menjelaskan arah, bukti, dan kontribusi saya.<br />
+                        <br />
+                        FORMAT:<br />
+                        Headline: maksimal satu baris per opsi.<br />
+                        About: 3 kalimat pembuka, lalu 3–5 bullet bukti, lalu
+                        satu kalimat penutup.<br />
+                        Tambahkan daftar klaim yang harus saya cek sebelum
+                        publikasi.<br />
+                        <br />
+                        Gunakan bahasa profesional, spesifik, dan natural.<br />
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">2.3</span>
+                    <span
+                      ><strong>Workflow Optimasi yang Tidak Mengarang</strong
+                      ><span
+                        >Dari job description ke keyword, lalu kembali ke
+                        bukti</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Keyword penting karena profil profesional juga ditemukan
+                      melalui pencarian. Namun keyword stuffing membuat profil
+                      sulit dibaca dan berisiko menciptakan klaim yang tidak
+                      dapat Anda pertanggungjawabkan. Gunakan lowongan nyata
+                      sebagai sumber bahasa, lalu cocokkan hanya dengan skill
+                      yang memang ada.
+                    </p>
+
+                    <div class="table-wrap">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Tahap</th>
+                            <th>Aksi</th>
+                            <th>Output</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1. Target</td>
+                            <td>
+                              Pilih satu keluarga role dan kumpulkan 3–5
+                              lowongan yang mirip.
+                            </td>
+                            <td>Daftar pola tanggung jawab.</td>
+                          </tr>
+                          <tr>
+                            <td>2. Ekstrak</td>
+                            <td>
+                              Catat kata kerja, tools, domain, dan kompetensi
+                              yang berulang.
+                            </td>
+                            <td>Keyword map.</td>
+                          </tr>
+                          <tr>
+                            <td>3. Cocokkan</td>
+                            <td>
+                              Tandai skill yang benar-benar pernah digunakan.
+                            </td>
+                            <td>Verified keyword list.</td>
+                          </tr>
+                          <tr>
+                            <td>4. Buktikan</td>
+                            <td>
+                              Hubungkan keyword dengan proyek atau pengalaman
+                              spesifik.
+                            </td>
+                            <td>Evidence bank.</td>
+                          </tr>
+                          <tr>
+                            <td>5. Edit</td>
+                            <td>
+                              Masukkan bahasa yang relevan secara natural ke
+                              Headline, About, Experience, dan Skills.
+                            </td>
+                            <td>Profil yang konsisten.</td>
+                          </tr>
+                          <tr>
+                            <td>6. Audit</td>
+                            <td>
+                              Cek apakah setiap klaim dapat dijelaskan saat
+                              wawancara.
+                            </td>
+                            <td>Profil siap publikasi.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="case-study">
+                      <span class="case-label">Mini audit</span>
+                      <h4>Keyword bukan dekorasi</h4>
+                      <p>
+                        Jika tiga lowongan target menyebut “stakeholder
+                        communication”, jangan menambahkannya hanya karena
+                        terdengar bagus. Cari bukti: pernahkah Anda menjelaskan
+                        progres ke dosen, klien, product owner, anggota
+                        organisasi, atau tim lintas fungsi? Jika ya, tulis
+                        pengalaman konkret itu. Jika tidak, jadikan keyword
+                        tersebut sebagai gap pembelajaran, bukan klaim.
+                      </p>
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Saya memiliki 3–5 job description untuk role yang sama.
+                        [Tempelkan job description]<br />
+                        Bantu saya melakukan workflow berikut:<br />
+                        1. Ekstrak keyword yang berulang.<br />
+                        2. Kelompokkan berdasarkan skill, tools, domain, dan
+                        tanggung jawab.<br />
+                        3. Tandai keyword yang benar-benar didukung pengalaman
+                        saya.<br />
+                        4. Pisahkan keyword yang belum memiliki bukti.<br />
+                        5. Hubungkan keyword yang terbukti dengan
+                        pengalaman/proyek saya.<br />
+                        6. Buat evidence bank sederhana.<br />
+                        <br />
+                        Jangan menyarankan saya memasukkan keyword yang tidak
+                        dapat saya pertanggungjawabkan.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Tempelkan beberapa lowongan yang serupa untuk membuat
+                      keyword map, lalu cocokkan hasilnya dengan pengalaman
+                      nyata sebelum mengubah profil LinkedIn.
+                    </div>
+                  </div>
+                </article>
+
+                <div class="completion-card">
+                  <div>
+                    <strong>Selesai membaca Modul 2?</strong>
+                    <span
+                      >Tandai setelah Anda memiliki draft Headline, About, dan
+                      evidence bank yang konsisten.</span
+                    >
+                  </div>
+                  <button
+                    class="btn btn-success mark-complete"
+                    type="button"
+                    data-module="module2">
+                    Tandai Sudah Dibaca
+                  </button>
+                </div>
+
+                <div class="page-nav"><button class="btn btn-secondary" type="button" data-goto="module1"><small>Sebelumnya</small><span>Modul 1: Kejelasan Karier</span></button><button class="btn btn-primary" type="button" data-goto="module3"><small>Lanjut</small><span>Modul 3: Pencarian Kerja</span></button></div>
+              </div>
+            </section>
+
+            <section class="page" id="page-module3" data-page="module3">
+              <div class="module-hero">
+                <div class="module-hero-inner">
+                  <div class="module-number">03</div>
+                  <h1>Pencarian Kerja, Evaluasi Peluang & Networking</h1>
+                  <p>
+                    Pencarian kerja yang sehat adalah sistem. Anda mencari
+                    peluang yang cocok, memprioritaskan, mengirim aplikasi
+                    berkualitas, membangun relasi, mencatat progres, lalu
+                    melanjutkan proses tanpa menggantungkan seluruh harapan pada
+                    satu lowongan.
+                  </p>
+                  <div class="learning-outcomes">
+                    <span class="outcome-pill">Job-search system</span>
+                    <span class="outcome-pill">Opportunity scoring</span>
+                    <span class="outcome-pill">Networking with value</span>
+                    <span class="outcome-pill">Follow-up discipline</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-wrap">
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">3.1</span>
+                    <span
+                      ><strong>Bangun Sistem Pencarian Kerja</strong
+                      ><span
+                        >Siapkan → Temukan → Evaluasi → Hubungkan → Lacak</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Melamar lebih banyak tidak otomatis meningkatkan kualitas
+                      peluang. Sistem yang lebih baik memisahkan aktivitas
+                      menjadi beberapa tahap sehingga Anda tahu di mana
+                      bottleneck sebenarnya terjadi.
+                    </p>
+
+                    <div class="three-grid">
+                      <div class="info-card">
+                        <h4>Siapkan</h4>
+                        <p>
+                          CV master, profil profesional, evidence bank, target
+                          role, lokasi, dan kriteria minimum.
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Temukan</h4>
+                        <p>
+                          Gunakan job board, halaman karier, komunitas, alumni,
+                          recruiter, dan pencarian berbasis keyword.
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Prioritaskan</h4>
+                        <p>
+                          Nilai fit berdasarkan tanggung jawab, skill,
+                          senioritas, lokasi, kompensasi, dan kondisi kerja.
+                        </p>
+                      </div>
+                    </div>
+
+                    <h3>Ritme mingguan yang realistis</h3>
+                    <div class="table-wrap">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Frekuensi</th>
+                            <th>Aktivitas</th>
+                            <th>Tujuan</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Harian, 10–15 menit</td>
+                            <td>Scan lowongan baru dan simpan yang relevan.</td>
+                            <td>Menjaga pipeline tanpa doom-scrolling.</td>
+                          </tr>
+                          <tr>
+                            <td>Harian / selang hari</td>
+                            <td>Sesuaikan 1–2 aplikasi berkualitas.</td>
+                            <td>Menjaga fokus pada relevansi.</td>
+                          </tr>
+                          <tr>
+                            <td>2× per minggu</td>
+                            <td>
+                              Interaksi profesional atau networking bernilai.
+                            </td>
+                            <td>Membangun konteks sebelum meminta bantuan.</td>
+                          </tr>
+                          <tr>
+                            <td>Jumat</td>
+                            <td>
+                              Review tracker, tindak lanjut, dan evaluasi pola.
+                            </td>
+                            <td>Mengetahui conversion rate dan bottleneck.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Bantu saya membangun sistem pencarian kerja untuk role:
+                        [Role target].<br />
+                        Gunakan alur: Siapkan → Temukan → Evaluasi → Hubungkan →
+                        Lacak.<br />
+                        Buatkan:<br />
+                        1. Checklist persiapan.<br />
+                        2. Strategi menemukan lowongan.<br />
+                        3. Kriteria evaluasi lowongan.<br />
+                        4. Strategi networking yang relevan.<br />
+                        5. Template tracking pencarian kerja.<br />
+                        <br />
+                        Buat hasil dalam bentuk tabel yang dapat saya gunakan
+                        untuk mencatat setiap peluang.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Gunakan sebelum mulai aktif mencari kerja agar proses
+                      pencarian tidak hanya berdasarkan banyaknya lamaran,
+                      tetapi memiliki sistem yang dapat dilacak.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">3.2</span>
+                    <span
+                      ><strong>Temukan & Evaluasi Peluang dengan AI</strong
+                      ><span
+                        >Menggunakan AI untuk ekstraksi, bukan untuk keputusan
+                        buta</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      AI berguna untuk mengubah deskripsi pekerjaan yang panjang
+                      menjadi struktur yang dapat dibandingkan. Tetapi jangan
+                      meminta “apakah saya cocok?” lalu menerima satu angka
+                      seolah-olah itu kebenaran objektif. Lebih baik minta model
+                      menjelaskan dimensi kecocokan dan bukti di balik setiap
+                      penilaian.
+                    </p>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>Prompt evaluasi lowongan</span
+                        ><button class="copy-button" type="button">
+                          Salin
+                        </button>
+                      </div>
+                      <div class="prompt-body">
+                        CONTEXT:<br />
+                        Berikut ringkasan pengalaman saya: [isi dengan versi
+                        anonim dan relevan]<br />
+                        Berikut deskripsi pekerjaan: [tempel isi lowongan yang
+                        tidak sensitif]<br />
+                        <br />
+                        TASK:<br />
+                        1. Pisahkan requirement menjadi wajib, penting, dan
+                        bonus.<br />
+                        2. Cocokkan setiap requirement dengan bukti yang saya
+                        berikan.<br />
+                        3. Tandai gap yang benar-benar kritis.<br />
+                        4. Identifikasi pertanyaan yang perlu saya riset sebelum
+                        melamar.<br />
+                        5. Jangan membuat persentase kecocokan jika datanya
+                        tidak cukup.<br />
+                        <br />
+                        FORMAT:<br />
+                        Tabel: Requirement | Prioritas | Bukti saya | Status:
+                        kuat/sebagian/belum ada | Tindakan.<br />
+                        Akhiri dengan ringkasan risiko dan 3 pertanyaan
+                        verifikasi.<br />
+                      </div>
+                    </div>
+
+                    <h3>Rubrik prioritas sederhana</h3>
+                    <div class="table-wrap">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Dimensi</th>
+                            <th>Pertanyaan</th>
+                            <th>Skor 0–2</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Role fit</td>
+                            <td>Apakah tugas intinya sesuai target?</td>
+                            <td>0 tidak, 1 sebagian, 2 kuat</td>
+                          </tr>
+                          <tr>
+                            <td>Evidence fit</td>
+                            <td>Apakah Anda punya bukti kompetensi inti?</td>
+                            <td>0–2</td>
+                          </tr>
+                          <tr>
+                            <td>Level fit</td>
+                            <td>Apakah senioritasnya realistis?</td>
+                            <td>0–2</td>
+                          </tr>
+                          <tr>
+                            <td>Constraint fit</td>
+                            <td>
+                              Lokasi, jam, model kerja, kompensasi, dan bahasa
+                              sesuai?
+                            </td>
+                            <td>0–2</td>
+                          </tr>
+                          <tr>
+                            <td>Growth fit</td>
+                            <td>
+                              Apakah peran membantu membangun jalur yang Anda
+                              tuju?
+                            </td>
+                            <td>0–2</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="callout">
+                      <strong
+                        >Gunakan skor sebagai alat konsistensi, bukan
+                        ramalan.</strong
+                      >
+                      Dua lowongan dengan skor sama bisa tetap berbeda
+                      kualitasnya karena informasi perusahaan, manajer, budaya,
+                      dan ruang lingkup aktual belum tentu terlihat dari iklan.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">3.3</span>
+                    <span
+                      ><strong>Networking yang Mengutamakan Nilai</strong
+                      ><span
+                        >Komentar spesifik, konteks, koneksi, dan tindak
+                        lanjut</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Networking bukan mengirim ratusan permintaan koneksi
+                      dengan pesan generik. Mulailah dari rasa ingin tahu yang
+                      relevan: ikuti profesional di target industri, pelajari
+                      konteksnya, lalu berinteraksi saat Anda benar-benar punya
+                      sesuatu yang berguna atau spesifik untuk dibicarakan.
+                    </p>
+
+                    <div class="compare-grid">
+                      <div class="info-card">
+                        <h4>Pesan lemah</h4>
+                        <p>
+                          “Halo Kak, saya sedang mencari kerja. Boleh refer saya
+                          ke perusahaan Anda?”
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Pesan lebih sehat</h4>
+                        <p>
+                          “Saya membaca posting Anda tentang onboarding analyst.
+                          Saya sedang membangun portofolio dashboard operasional
+                          dan tertarik memahami skill apa yang paling sering
+                          membedakan kandidat junior. Terima kasih atas insight
+                          yang Anda bagikan.”
+                        </p>
+                      </div>
+                    </div>
+
+                    <h3>Urutan hubungan yang wajar</h3>
+                    <ol>
+                      <li>
+                        <strong>Amati:</strong> pahami peran, topik, dan
+                        kontribusi orang tersebut.
+                      </li>
+                      <li>
+                        <strong>Berinteraksi:</strong> komentar spesifik pada
+                        topik yang memang Anda pahami.
+                      </li>
+                      <li>
+                        <strong>Hubungkan:</strong> kirim koneksi dengan konteks
+                        singkat bila relevan.
+                      </li>
+                      <li>
+                        <strong>Tanya:</strong> ajukan pertanyaan kecil dan
+                        terarah, bukan permintaan besar di awal.
+                      </li>
+                      <li>
+                        <strong>Jaga hubungan:</strong> update perkembangan jika
+                        sebelumnya mereka membantu.
+                      </li>
+                    </ol>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Bantu saya membuat strategi networking yang natural.<br />
+                        Konteks saya:<br />
+                        - Role target:<br />
+                        - Latar belakang:<br />
+                        - Skill:<br />
+                        - Topik yang ingin saya pelajari:<br />
+                        - Orang/profesi yang ingin saya hubungi:<br />
+                        <br />
+                        Buat:<br />
+                        1. 5 contoh komentar yang spesifik dan relevan.<br />
+                        2. 3 contoh pesan koneksi.<br />
+                        3. 2 contoh pesan follow-up.<br />
+                        4. Topik yang dapat saya tawarkan sebagai nilai atau
+                        kontribusi.<br />
+                        5. Hal yang sebaiknya tidak saya lakukan agar networking
+                        tidak terasa seperti meminta pekerjaan secara
+                        langsung.<br />
+                        <br />
+                        Gunakan bahasa natural dan jangan membuat klaim
+                        pengalaman yang tidak saya miliki.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Gunakan sebelum berinteraksi dengan profesional di
+                      LinkedIn agar komentar, koneksi, dan follow-up memiliki
+                      konteks serta nilai yang jelas.
+                    </div>
+                  </div>
+                </article>
+
+                <div class="completion-card">
+                  <div>
+                    <strong>Selesai membaca Modul 3?</strong>
+                    <span
+                      >Tandai setelah Anda memiliki kriteria peluang, ritme
+                      mingguan, dan satu draft networking.</span
+                    >
+                  </div>
+                  <button
+                    class="btn btn-success mark-complete"
+                    type="button"
+                    data-module="module3">
+                    Tandai Sudah Dibaca
+                  </button>
+                </div>
+
+                <div class="page-nav"><button class="btn btn-secondary" type="button" data-goto="module2"><small>Sebelumnya</small><span>Modul 2: Personal Branding</span></button><button class="btn btn-primary" type="button" data-goto="module4"><small>Lanjut</small><span>Modul 4: Paket Lamaran</span></button></div>
+              </div>
+            </section>
+
+            <section class="page" id="page-module4" data-page="module4">
+              <div class="module-hero">
+                <div class="module-hero-inner">
+                  <div class="module-number">04</div>
+                  <h1>CV, Portofolio & Surat Lamaran yang Kuat</h1>
+                  <p>
+                    Paket lamaran yang baik bekerja sebagai satu sistem: CV
+                    menyajikan bukti relevan, portofolio memperlihatkan
+                    pekerjaan secara konkret, dan surat lamaran menjelaskan
+                    hubungan antara pengalaman Anda dengan kebutuhan peran.
+                  </p>
+                  <div class="learning-outcomes">
+                    <span class="outcome-pill">Evidence inventory</span>
+                    <span class="outcome-pill">ATS-friendly structure</span>
+                    <span class="outcome-pill">Action–Scope–Result</span>
+                    <span class="outcome-pill">Cover letter logic</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-wrap">
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">4.1</span>
+                    <span
+                      ><strong
+                        >Bangun Inventaris Pengalaman Sebelum Menulis CV</strong
+                      ><span
+                        >Jangan mulai dari template; mulai dari bukti</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      CV yang kuat biasanya bukan hasil “mempercantik kalimat
+                      lama”. Ia dimulai dari inventaris pengalaman: proyek,
+                      tugas, tanggung jawab, masalah yang diselesaikan, alat
+                      yang digunakan, orang yang dilayani, ruang lingkup, dan
+                      hasil. Baru setelah itu Anda memilih bukti yang paling
+                      relevan untuk lowongan.
+                    </p>
+
+                    <h3>Gunakan pola Action + Scope + Result</h3>
+                    <div class="compare-grid">
+                      <div class="info-card">
+                        <h4>Sebelum</h4>
+                        <p>
+                          “Bertanggung jawab membuat aplikasi absensi guru.”
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Sesudah</h4>
+                        <p>
+                          “Mengembangkan aplikasi absensi berbasis Flutter dan
+                          Firebase untuk digitalisasi pencatatan kehadiran guru,
+                          mencakup autentikasi dan sinkronisasi data real-time.”
+                        </p>
+                      </div>
+                    </div>
+
+                    <p>
+                      Jangan memaksa metrik jika Anda tidak memilikinya. Hasil
+                      dapat berbentuk
+                      <strong
+                        >output yang selesai, proses yang lebih sederhana, waktu
+                        manual yang berkurang, jumlah pengguna, cakupan fitur,
+                        reliabilitas, kualitas, atau feedback</strong
+                      >. Yang penting, hasil tersebut benar.
+                    </p>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Bantu saya membuat inventaris pengalaman sebelum menulis
+                        CV.<br />
+                        Berikut pengalaman saya: [Tuliskan pengalaman kerja,
+                        organisasi, kuliah, proyek, freelance, volunteer, atau
+                        aktivitas lainnya.]<br />
+                        <br />
+                        Untuk setiap pengalaman, ekstrak:<br />
+                        1. Situasi/konteks.<br />
+                        2. Tugas atau tanggung jawab.<br />
+                        3. Tindakan yang saya lakukan.<br />
+                        4. Hasil yang dihasilkan.<br />
+                        5. Skill yang digunakan.<br />
+                        6. Tools yang digunakan.<br />
+                        7. Bukti atau metrik yang tersedia.<br />
+                        8. Potensi pencapaian yang dapat dikembangkan menjadi
+                        bullet CV.<br />
+                        <br />
+                        Jangan membuat angka atau pencapaian yang tidak saya
+                        berikan.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Masukkan seluruh pengalaman terlebih dahulu. Gunakan
+                      hasilnya sebagai evidence bank sebelum memilih pengalaman
+                      mana yang paling relevan untuk CV.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">4.2</span>
+                    <span
+                      ><strong>CV yang Mudah Dipindai Manusia & Sistem</strong
+                      ><span
+                        >Struktur, keyword, prioritas, dan integritas
+                        informasi</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Sistem rekrutmen berbeda-beda dan tidak ada satu “formula
+                      ATS” universal. Namun prinsip yang aman adalah menggunakan
+                      struktur sederhana, heading yang jelas, teks yang dapat
+                      dipilih, dan keyword relevan yang muncul secara natural
+                      pada pengalaman yang benar-benar mendukungnya.
+                    </p>
+
+                    <h3>Urutan yang umum untuk kandidat awal karier</h3>
+                    <ol>
+                      <li>Nama dan informasi kontak profesional.</li>
+                      <li>Ringkasan singkat bila memang menambah konteks.</li>
+                      <li>Skills / tools yang relevan.</li>
+                      <li>
+                        Experience, internship, project, atau freelance sesuai
+                        kekuatan bukti.
+                      </li>
+                      <li>Pendidikan dan sertifikasi yang relevan.</li>
+                      <li>
+                        Link portofolio / GitHub bila membantu role target.
+                      </li>
+                    </ol>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>Prompt penulisan bullet CV yang aman</span
+                        ><button class="copy-button" type="button">
+                          Salin
+                        </button>
+                      </div>
+                      <div class="prompt-body">
+                        CONTEXT:<br />
+                        Target role: [role].<br />
+                        Deskripsi pekerjaan: [teks].<br />
+                        Inventaris pengalaman saya: [teks pengalaman].<br />
+                        <br />
+                        TASK:<br />
+                        Pilih pengalaman yang paling relevan dan tulis ulang
+                        menjadi bullet CV menggunakan pola Action + Scope +
+                        Result.<br />
+                        Prioritaskan kata kerja yang konkret dan keyword dari
+                        deskripsi pekerjaan hanya jika didukung bukti.<br />
+                        <br />
+                        ATURAN:<br />
+                        - Jangan membuat angka, hasil, jabatan, alat, atau
+                        tanggung jawab baru.<br />
+                        - Jangan mengubah pengalaman belajar menjadi pengalaman
+                        kerja.<br />
+                        - Jika informasi hasil belum ada, tandai [BUTUH HASIL]
+                        alih-alih mengarang.<br />
+                        <br />
+                        FORMAT:<br />
+                        Untuk setiap pengalaman, buat 2–4 bullet satu baris.<br />
+                        Setelah itu buat tabel audit: Klaim | Sumber bukti |
+                        Perlu verifikasi: ya/tidak.<br />
+                      </div>
+                    </div>
+
+                    <h3>
+                      Portofolio: tunjukkan cara berpikir, bukan hanya
+                      screenshot
+                    </h3>
+                    <div class="card-grid">
+                      <div class="info-card">
+                        <h4>Masalah</h4>
+                        <p>Apa konteks dan kebutuhan pengguna atau bisnis?</p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Peran</h4>
+                        <p>Apa kontribusi Anda secara spesifik?</p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Keputusan</h4>
+                        <p>
+                          Mengapa Anda memilih pendekatan, teknologi, atau
+                          desain tertentu?
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <h4>Hasil & refleksi</h4>
+                        <p>
+                          Apa yang berhasil, apa keterbatasannya, dan apa yang
+                          akan diperbaiki?
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">4.3</span>
+                    <span
+                      ><strong>Surat Lamaran yang Terdengar Seperti Anda</strong
+                      ><span
+                        >Motivasi yang spesifik, bukti yang relevan, dan penutup
+                        yang ringkas</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Surat lamaran tidak perlu mengulang CV. Gunakan dokumen
+                      ini untuk menjelaskan
+                      <strong
+                        >mengapa peran tersebut relevan, bukti apa yang paling
+                        mendukung, dan mengapa konteks organisasi tersebut
+                        menarik bagi Anda</strong
+                      >.
+                    </p>
+
+                    <h3>Struktur empat paragraf</h3>
+                    <ol>
+                      <li>
+                        <strong>Pembuka:</strong> role yang dilamar dan alasan
+                        spesifik.
+                      </li>
+                      <li>
+                        <strong>Bukti utama:</strong> satu pengalaman yang
+                        paling relevan.
+                      </li>
+                      <li>
+                        <strong>Koneksi:</strong> bagaimana pengalaman tersebut
+                        membantu kebutuhan peran.
+                      </li>
+                      <li>
+                        <strong>Penutup:</strong> minat untuk berdiskusi, tanpa
+                        hiperbola.
+                      </li>
+                    </ol>
+
+                    <div class="case-study">
+                      <span class="case-label">Contoh logika</span>
+                      <h4>
+                        Jangan menulis “Saya sangat passionate” lalu berhenti.
+                      </h4>
+                      <p>
+                        Ganti klaim abstrak dengan konteks. Misalnya, kandidat
+                        software dapat menjelaskan bahwa ia tertarik pada role
+                        mobile karena beberapa proyeknya berfokus pada
+                        pengalaman pengguna di perangkat dengan sumber daya
+                        terbatas, lalu menghubungkan bukti tersebut ke kebutuhan
+                        produk perusahaan.
+                      </p>
+                    </div>
+
+                    <div class="callout warning">
+                      <strong
+                        >AI sebaiknya menjadi editor, bukan penulis biografi
+                        fiktif.</strong
+                      >
+                      Jika draft terdengar terlalu sempurna, generik, atau
+                      menggunakan kosakata yang tidak pernah Anda pakai,
+                      sederhanakan sampai Anda sanggup mengucapkannya dengan
+                      nyaman saat wawancara.
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Bantu saya membuat surat lamaran berdasarkan informasi
+                        berikut.<br />
+                        ROLE: [Posisi]<br />
+                        PERUSAHAAN: [Perusahaan]<br />
+                        JOB DESCRIPTION: [Job description]<br />
+                        PENGALAMAN RELEVAN: [Pengalaman]<br />
+                        BUKTI: [Proyek/pencapaian]<br />
+                        <br />
+                        TASK: Buat surat lamaran yang:<br />
+                        1. Menjelaskan alasan saya tertarik secara spesifik.<br />
+                        2. Menghubungkan pengalaman saya dengan kebutuhan
+                        role.<br />
+                        3. Menggunakan bukti yang relevan.<br />
+                        4. Tidak mengulang seluruh isi CV.<br />
+                        5. Terdengar natural dan profesional.<br />
+                        6. Tidak membuat klaim yang tidak ada dalam data
+                        saya.<br />
+                      </div>
+                    </div>
+
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Masukkan satu lowongan dan pengalaman paling relevan untuk
+                      menghasilkan draft surat lamaran yang spesifik terhadap
+                      posisi tersebut.
+                    </div>
+                  </div>
+                </article>
+
+                <div class="completion-card">
+                  <div>
+                    <strong>Selesai membaca Modul 4?</strong>
+                    <span
+                      >Tandai setelah Anda memiliki inventaris bukti, satu
+                      bullet CV yang kuat, dan struktur portofolio atau cover
+                      letter.</span
+                    >
+                  </div>
+                  <button
+                    class="btn btn-success mark-complete"
+                    type="button"
+                    data-module="module4">
+                    Tandai Sudah Dibaca
+                  </button>
+                </div>
+
+                <div class="page-nav"><button class="btn btn-secondary" type="button" data-goto="module3"><small>Sebelumnya</small><span>Modul 3: Pencarian Kerja</span></button><button class="btn btn-primary" type="button" data-goto="module5"><small>Lanjut</small><span>Modul 5: Persiapan Wawancara</span></button></div>
+              </div>
+            </section>
+
+            <section class="page" id="page-module5" data-page="module5">
+              <div class="module-hero">
+                <div class="module-hero-inner">
+                  <div class="module-number">05</div>
+                  <h1>Persiapan Wawancara & Kepercayaan Diri</h1>
+                  <p>
+                    Kepercayaan diri wawancara lebih mudah dibangun ketika Anda
+                    tahu cerita mana yang akan digunakan, memahami kebutuhan
+                    role, dan sudah berlatih menjawab dengan struktur yang
+                    ringkas.
+                  </p>
+                  <div class="learning-outcomes">
+                    <span class="outcome-pill">Interview mindset</span>
+                    <span class="outcome-pill">STAR</span>
+                    <span class="outcome-pill">AI mock interview</span>
+                    <span class="outcome-pill">5-answer sheet</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-wrap">
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">5.1</span>
+                    <span
+                      ><strong>Dari Gugup ke Persiapan yang Sistematis</strong
+                      ><span
+                        >Yang dapat dikontrol: riset, cerita, latihan, dan
+                        klarifikasi</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Gugup tidak selalu berarti Anda tidak siap. Wawancara
+                      memiliki ketidakpastian, dan respons fisiologis terhadap
+                      situasi evaluasi itu normal. Fokuskan persiapan pada hal
+                      yang dapat dikontrol: memahami role, menyiapkan bukti,
+                      berlatih menyampaikan cerita, dan menyiapkan pertanyaan.
+                    </p>
+
+                    <h3>Lima tipe pertanyaan yang layak dipersiapkan</h3>
+                    <ol>
+                      <li>“Ceritakan tentang diri Anda.”</li>
+                      <li>“Ceritakan tantangan yang pernah Anda hadapi.”</li>
+                      <li>
+                        “Bagaimana Anda bekerja dalam tim atau menghadapi
+                        konflik?”
+                      </li>
+                      <li>
+                        “Bagaimana Anda bekerja di bawah tekanan atau tenggat?”
+                      </li>
+                      <li>“Apa area pengembangan atau kelemahan Anda?”</li>
+                    </ol>
+
+                    <div class="callout">
+                      <strong>Tujuan persiapan bukan menghafal naskah.</strong>
+                      Siapkan kerangka dan bukti. Saat pertanyaan berubah, Anda
+                      tetap bisa menyesuaikan jawaban tanpa terdengar seperti
+                      membaca.
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Saya akan menghadapi wawancara untuk posisi: [Role].<br />
+                        Perusahaan: [Perusahaan]<br />
+                        Job description: [Job description]<br />
+                        <br />
+                        Bantu saya membuat checklist persiapan yang mencakup:<br />
+                        1. Riset perusahaan.<br />
+                        2. Riset role.<br />
+                        3. Topik teknis yang perlu dipelajari.<br />
+                        4. Pengalaman yang perlu saya siapkan.<br />
+                        5. Pertanyaan yang mungkin muncul.<br />
+                        6. Pertanyaan yang dapat saya ajukan kepada
+                        interviewer.<br />
+                        7. Hal yang perlu saya klarifikasi.<br />
+                        <br />
+                        Kelompokkan menjadi:<br />
+                        - Sebelum wawancara<br />
+                        - 24 jam sebelum<br />
+                        - 1 jam sebelum<br />
+                        - Saat wawancara<br />
+                        <br />
+                        Jangan mengarang informasi perusahaan yang tidak saya
+                        berikan.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Gunakan setelah mendapatkan jadwal wawancara dan job
+                      description agar persiapan dapat dilakukan secara
+                      sistematis.
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">5.2</span>
+                    <span
+                      ><strong>STAR & Simulasi Wawancara dengan AI</strong
+                      ><span
+                        >Situation → Task → Action → Result → Reflection</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      STAR membantu menjaga jawaban tetap terstruktur. Tambahkan
+                      <strong>Reflection</strong> bila relevan untuk menunjukkan
+                      pembelajaran. Bagian Action sebaiknya paling kaya detail
+                      karena di sanalah perekrut bisa melihat keputusan dan
+                      kontribusi Anda.
+                    </p>
+
+                    <div class="table-wrap">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Bagian</th>
+                            <th>Fokus</th>
+                            <th>Kesalahan umum</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Situation</td>
+                            <td>Konteks singkat.</td>
+                            <td>Terlalu panjang menjelaskan latar.</td>
+                          </tr>
+                          <tr>
+                            <td>Task</td>
+                            <td>Tanggung jawab atau tujuan Anda.</td>
+                            <td>
+                              Tidak jelas apa yang menjadi tanggung jawab
+                              pribadi.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Action</td>
+                            <td>Langkah, keputusan, komunikasi, tools.</td>
+                            <td>
+                              Hanya mengatakan “kami” tanpa kontribusi pribadi.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Result</td>
+                            <td>Output, dampak, perubahan, pembelajaran.</td>
+                            <td>
+                              Mengarang metrik atau berhenti sebelum menjelaskan
+                              hasil.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Reflection</td>
+                            <td>
+                              Apa yang akan dipertahankan atau diperbaiki.
+                            </td>
+                            <td>Menjadi esai panjang yang tidak diminta.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>Prompt mock interview</span
+                        ><button class="copy-button" type="button">
+                          Salin
+                        </button>
+                      </div>
+                      <div class="prompt-body">
+                        CONTEXT:<br />
+                        Saya sedang mempersiapkan wawancara untuk role
+                        [role].<br />
+                        Berikut deskripsi pekerjaan: [teks].<br />
+                        Berikut ringkasan pengalaman saya: [teks aman dan
+                        relevan].<br />
+                        <br />
+                        TASK:<br />
+                        Lakukan mock interview satu pertanyaan pada satu
+                        waktu.<br />
+                        Mulai dari pertanyaan pembuka, lalu behavioral,
+                        situasional, dan pertanyaan teknis ringan yang sesuai
+                        role.<br />
+                        Setelah setiap jawaban saya:<br />
+                        1. Nilai kejelasan struktur.<br />
+                        2. Tunjukkan bagian yang terlalu umum.<br />
+                        3. Identifikasi klaim yang belum didukung bukti.<br />
+                        4. Berikan satu saran perbaikan paling penting.<br />
+                        5. Ajukan follow-up seperti interviewer sungguhan.<br />
+                        <br />
+                        FORMAT:<br />
+                        Pertanyaan → tunggu jawaban saya → feedback singkat →
+                        follow-up.<br />
+                        Jangan menulis jawaban ideal sebelum saya mencoba
+                        menjawab.<br />
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="chapter open">
+                  <header class="chapter-header">
+                    <span class="chapter-icon">5.3</span>
+                    <span
+                      ><strong>Buat Lembar Persiapan 5 Jawaban</strong
+                      ><span
+                        >Ringkas, fleksibel, dan mudah dipelajari sebelum
+                        wawancara</span
+                      ></span
+                    >
+                    </header>
+                  <div class="chapter-body">
+                    <p>
+                      Alih-alih menghafal 30 jawaban, siapkan lima cerita inti
+                      yang dapat dipetakan ke banyak pertanyaan. Satu proyek
+                      yang kompleks, misalnya, bisa menjawab pertanyaan tentang
+                      tantangan, teamwork, prioritas, kegagalan kecil, dan
+                      pembelajaran, asalkan Anda mengubah fokus ceritanya.
+                    </p>
+
+                    <div class="table-wrap">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Tipe</th>
+                            <th>Bukti yang disiapkan</th>
+                            <th>Pesan utama</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Tell me about yourself</td>
+                            <td>Now → Past evidence → Next.</td>
+                            <td>Arah profesional Anda konsisten.</td>
+                          </tr>
+                          <tr>
+                            <td>Challenge</td>
+                            <td>Satu masalah nyata dan cara mengatasinya.</td>
+                            <td>Problem solving.</td>
+                          </tr>
+                          <tr>
+                            <td>Teamwork</td>
+                            <td>Kolaborasi, konflik, atau koordinasi.</td>
+                            <td>Komunikasi dan ownership.</td>
+                          </tr>
+                          <tr>
+                            <td>Pressure</td>
+                            <td>Deadline, prioritas, trade-off.</td>
+                            <td>Judgment dan eksekusi.</td>
+                          </tr>
+                          <tr>
+                            <td>Weakness</td>
+                            <td>Area nyata + tindakan perbaikan.</td>
+                            <td>Self-awareness tanpa sabotase diri.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <h3>Pertanyaan balik yang berkualitas</h3>
+                    <ul>
+                      <li>
+                        “Apa prioritas paling penting untuk role ini dalam 90
+                        hari pertama?”
+                      </li>
+                      <li>
+                        “Bagaimana tim menilai keberhasilan untuk posisi ini?”
+                      </li>
+                      <li>
+                        “Tantangan apa yang paling sering dihadapi orang baru
+                        dalam role ini?”
+                      </li>
+                      <li>
+                        “Bagaimana kolaborasi antara tim ini dengan fungsi
+                        lain?”
+                      </li>
+                    </ul>
+
+                    <div class="callout success">
+                      <strong>Sebelum wawancara:</strong> baca ulang lima
+                      cerita, bukan seluruh riwayat hidup. Latih suara keras
+                      satu atau dua kali, cek koneksi/perangkat untuk wawancara
+                      daring, dan siapkan air serta catatan singkat.
+                    </div>
+
+                    <div class="prompt-box">
+                      <div class="prompt-head">
+                        <span>🤖 Prompt AI</span>
+                        <button class="copy-button" type="button">Salin</button>
+                      </div>
+                      <div class="prompt-body">
+                        Bantu saya membuat lembar persiapan 5 jawaban wawancara
+                        berdasarkan pengalaman nyata saya.<br />
+                        Role target: [Role]<br />
+                        Pengalaman saya: [Daftar pengalaman]<br />
+                        <br />
+                        Buat 5 jawaban untuk pertanyaan:<br />
+                        1. Ceritakan tentang diri Anda.<br />
+                        2. Mengapa tertarik dengan posisi ini?<br />
+                        3. Ceritakan pencapaian atau proyek yang relevan.<br />
+                        4. Ceritakan tantangan atau kegagalan yang pernah
+                        dialami.<br />
+                        5. Mengapa kami harus mempertimbangkan Anda?<br />
+                        <br />
+                        Gunakan struktur yang ringkas, natural, dan mudah
+                        diingat. Gunakan STAR jika sesuai.<br />
+                        Setelah membuat draft, tandai bagian yang membutuhkan
+                        bukti atau detail tambahan dari saya.<br />
+                      </div>
+                    </div>
+                    <div class="prompting">
+                      <strong>Contoh penggunaan prompt :</strong><br />
+                      Isi pengalaman nyata Anda, lalu gunakan lima jawaban
+                      tersebut sebagai bahan latihan. Jangan menghafalnya kata
+                      demi kata; pahami struktur dan buktinya.
+                    </div>
+                  </div>
+                </article>
+
+                <div class="completion-card">
+                  <div>
+                    <strong>Selesai membaca Modul 5?</strong>
+                    <span
+                      >Tandai setelah Anda memiliki satu cerita STAR dan draft
+                      lembar persiapan 5 jawaban.</span
+                    >
+                  </div>
+                  <button
+                    class="btn btn-success mark-complete"
+                    type="button"
+                    data-module="module5">
+                    Tandai Sudah Dibaca
+                  </button>
+                </div>
+
+                <div class="page-nav"><button class="btn btn-secondary" type="button" data-goto="module4"><small>Sebelumnya</small><span>Modul 4: Paket Lamaran</span></button><button class="btn btn-primary" type="button" data-goto="quiz"><small>Lanjut</small><span>Latihan Akhir</span></button></div>
+              </div>
+            </section>
+
+            <section class="page" id="page-quiz" data-page="quiz">
+              <div class="module-hero">
+                <div class="module-hero-inner">
+                  <div class="module-number">Latihan mandiri</div>
+                  <h1>Latihan Akhir</h1>
+                  <p>
+                    Dua belas soal untuk memeriksa apakah konsep inti sudah
+                    dipahami. Pilih satu jawaban terbaik untuk setiap
+                    pertanyaan, umpan balik langsung muncul setelah Anda memilih.
+                  </p>
+                </div>
+              </div>
+
+              <div class="content-wrap">
+                <div class="quiz-intro">
+                  <strong>Latihan mandiri, tanpa nilai resmi</strong>
+                  <p style="margin: 6px 0 0">
+                    Jawaban tersimpan di browser dan bisa diulang kapan saja.
+                    Pertanyaan menguji pemahaman, bukan hafalan istilah.
+                  </p>
+                </div>
+
+                <form id="quizForm">
+                  <div class="quiz-card" data-question="q1" data-answer="b">
+                    <h3>
+                      1. Apa fungsi utama “kejelasan karier” dalam modul ini?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q1" value="a" /> Menentukan
+                      satu pekerjaan yang tidak boleh berubah selama lima
+                      tahun.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q1" value="b" /> Membuat
+                      hipotesis arah yang cukup spesifik untuk memandu keputusan
+                      dan eksperimen berikutnya.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q1" value="c" /> Memastikan AI
+                      memilihkan pekerjaan dengan gaji tertinggi.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q1" value="d" /> Membatasi diri
+                      hanya pada jurusan kuliah.</label
+                    >
+                    <div class="quiz-feedback">
+                      Jawaban terbaik: membuat hipotesis yang dapat diuji dan
+                      diperbaiki.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q2" data-answer="c">
+                    <h3>
+                      2. Dalam kerangka CTF, bagian “Format” digunakan untuk
+                      apa?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q2" value="a" /> Menjelaskan
+                      identitas pribadi.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q2" value="b" /> Menentukan
+                      apakah AI boleh mengakses internet.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q2" value="c" /> Menentukan
+                      bagaimana keluaran harus disajikan agar langsung dapat
+                      digunakan.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q2" value="d" /> Menggantikan
+                      kebutuhan verifikasi.</label
+                    >
+                    <div class="quiz-feedback">
+                      Format mengatur bentuk hasil, misalnya tabel, checklist,
+                      atau timeline.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q3" data-answer="d">
+                    <h3>
+                      3. Apa respons terbaik jika AI merekomendasikan karier
+                      yang terlihat menarik?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q3" value="a" /> Langsung
+                      mengubah headline LinkedIn.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q3" value="b" /> Menganggap
+                      rekomendasi benar karena AI menganalisis banyak
+                      data.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q3" value="c" /> Mengikuti
+                      rekomendasi jika judul pekerjaannya populer.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q3" value="d" /> Menguji skill
+                      overlap, aktivitas harian, pasar, kelayakan, lokasi, dan
+                      kualitas bukti.</label
+                    >
+                    <div class="quiz-feedback">
+                      Output AI perlu ditafsirkan dan diverifikasi, bukan
+                      diterima sebagai keputusan final.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q4" data-answer="a">
+                    <h3>
+                      4. Headline LinkedIn yang paling berguna biasanya
+                      menekankan apa?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q4" value="a" />
+                      Peran/identitas, skill relevan, dan konteks
+                      kontribusi.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q4" value="b" /> Motivasi umum
+                      seperti hard worker dan fast learner.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q4" value="c" /> Semua
+                      sertifikat yang pernah dimiliki.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q4" value="d" /> Satu kata:
+                      Open to Work.</label
+                    >
+                    <div class="quiz-feedback">
+                      Headline perlu membantu orang memahami positioning
+                      profesional dengan cepat.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q5" data-answer="c">
+                    <h3>
+                      5. Jika lowongan menyebut sebuah skill yang belum pernah
+                      Anda gunakan, apa tindakan terbaik?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q5" value="a" /> Tambahkan ke
+                      profil agar lolos pencarian.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q5" value="b" /> Minta AI
+                      membuat contoh pengalaman yang meyakinkan.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q5" value="c" /> Tandai sebagai
+                      gap dan bangun bukti sebelum mengklaimnya.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q5" value="d" /> Hapus semua
+                      keyword dari profil.</label
+                    >
+                    <div class="quiz-feedback">
+                      Keyword tanpa bukti menciptakan risiko kredibilitas.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q6" data-answer="b">
+                    <h3>6. Mengapa tracker aplikasi penting?</h3>
+                    <label class="option"
+                      ><input type="radio" name="q6" value="a" /> Agar jumlah
+                      lamaran selalu sebanyak mungkin.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q6" value="b" /> Agar Anda
+                      dapat melihat status, tindak lanjut, conversion, dan
+                      bottleneck proses.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q6" value="c" /> Agar AI dapat
+                      melamar otomatis tanpa pengawasan.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q6" value="d" /> Agar tidak
+                      perlu membaca deskripsi pekerjaan lagi.</label
+                    >
+                    <div class="quiz-feedback">
+                      Tracking mengubah pencarian kerja menjadi proses yang
+                      dapat dievaluasi.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q7" data-answer="d">
+                    <h3>7. Networking yang sehat dimulai dari apa?</h3>
+                    <label class="option"
+                      ><input type="radio" name="q7" value="a" /> Meminta
+                      referral pada pesan pertama.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q7" value="b" /> Mengirim pesan
+                      yang sama ke sebanyak mungkin orang.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q7" value="c" /> Menjelaskan
+                      seluruh riwayat hidup dalam satu DM.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q7" value="d" /> Memahami
+                      konteks, berinteraksi secara spesifik, lalu membangun
+                      hubungan bertahap.</label
+                    >
+                    <div class="quiz-feedback">
+                      Hubungan profesional lebih kuat jika ada konteks dan nilai
+                      sebelum permintaan besar.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q8" data-answer="a">
+                    <h3>
+                      8. Mengapa inventaris pengalaman dibuat sebelum menulis
+                      CV?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q8" value="a" /> Agar Anda
+                      memilih bukti relevan dari data pengalaman yang lengkap,
+                      bukan sekadar mempercantik kalimat lama.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q8" value="b" /> Agar CV
+                      menjadi lebih panjang.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q8" value="c" /> Agar semua
+                      pengalaman wajib dimasukkan.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q8" value="d" /> Agar template
+                      CV dapat dipilih berdasarkan warna.</label
+                    >
+                    <div class="quiz-feedback">
+                      CV adalah seleksi bukti relevan, bukan arsip seluruh
+                      pengalaman.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q9" data-answer="c">
+                    <h3>
+                      9. Jika sebuah pengalaman tidak memiliki angka hasil, apa
+                      yang sebaiknya dilakukan?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q9" value="a" /> Membuat angka
+                      konservatif.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q9" value="b" /> Menghapus
+                      pengalaman tersebut.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q9" value="c" /> Gunakan hasil
+                      non-numerik yang dapat dibuktikan atau tandai informasi
+                      yang perlu dilengkapi.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q9" value="d" /> Meminta AI
+                      memperkirakan metrik.</label
+                    >
+                    <div class="quiz-feedback">
+                      Integritas data lebih penting daripada memaksa semua
+                      bullet memiliki angka.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q10" data-answer="b">
+                    <h3>
+                      10. Bagian STAR mana yang biasanya perlu paling banyak
+                      detail?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q10" value="a" />
+                      Situation.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q10" value="b" />
+                      Action.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q10" value="c" /> Task.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q10" value="d" /> Judul
+                      cerita.</label
+                    >
+                    <div class="quiz-feedback">
+                      Action memperlihatkan apa yang benar-benar Anda lakukan
+                      dan bagaimana Anda mengambil keputusan.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q11" data-answer="d">
+                    <h3>
+                      11. Cara terbaik menggunakan AI untuk mock interview
+                      adalah?
+                    </h3>
+                    <label class="option"
+                      ><input type="radio" name="q11" value="a" /> Minta seluruh
+                      jawaban ideal terlebih dahulu lalu hafalkan.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q11" value="b" /> Minta AI
+                      menilai kepribadian dari satu jawaban.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q11" value="c" /> Minta AI
+                      selalu memuji agar kepercayaan diri naik.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q11" value="d" /> Satu
+                      pertanyaan per giliran, jawab sendiri, lalu minta feedback
+                      dan follow-up.</label
+                    >
+                    <div class="quiz-feedback">
+                      Latihan aktif lebih berguna daripada membaca jawaban
+                      sempurna buatan AI.
+                    </div>
+                  </div>
+
+                  <div class="quiz-card" data-question="q12" data-answer="a">
+                    <h3>12. Prinsip keamanan data yang paling tepat adalah?</h3>
+                    <label class="option"
+                      ><input type="radio" name="q12" value="a" /> Minimalkan
+                      dan anonimisasi data, hindari informasi sensitif, dan
+                      periksa kebijakan alat yang digunakan.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q12" value="b" /> Semua alat AI
+                      memiliki kebijakan data yang sama.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q12" value="c" /> CV selalu
+                      aman ditempelkan karena isinya profesional.</label
+                    >
+                    <label class="option"
+                      ><input type="radio" name="q12" value="d" /> Data
+                      perusahaan aman selama tidak ada logo.</label
+                    >
+                    <div class="quiz-feedback">
+                      Perlakukan data sesuai sensitivitasnya dan jangan membuat
+                      asumsi universal tentang kebijakan penyedia AI.
+                    </div>
+                  </div>
+
+                  <button
+                    class="btn btn-secondary"
+                    id="checkQuizButton"
+                    type="button" hidden>Ulangi Latihan
+                  </button>
+                </form>
+
+                <div class="score-panel" id="scorePanel" aria-live="polite">
+                  <strong id="scoreValue">0%</strong>
+                  <p id="scoreText">Skor Anda akan muncul di sini.</p>
+                </div>
+
+                <div class="certificate-card" id="certificateCard">
+                  <span class="tag">Selesai</span>
+                  <h2>Latihan selesai</h2>
+                  <p>
+                    Anda sudah menjawab seluruh soal latihan.
+                    Gunakan hasil aktivitas di setiap modul sebagai bahan kerja
+                    nyata, bukan sekadar catatan kursus yang kemudian terkubur
+                    bersama 47 tab browser lainnya.
+                  </p>
+                </div>
+
+                <div class="page-nav"><button class="btn btn-secondary" type="button" data-goto="module5"><small>Sebelumnya</small><span>Modul 5: Persiapan Wawancara</span></button><span></span></div>
+              </div>
+            </section>
+
+            <footer class="footer">
+              <strong>Career Forward</strong><br />
+              Modul pembelajaran orisinal berbasis tema pelatihan pengembangan
+              karier dengan AI. Gunakan AI secara kritis, verifikasi informasi,
+              dan lindungi data sensitif.
+            </footer>
+          </main>
+        </div>
+
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+        <script>
+          (() => {
+            "use strict";
+
+            const STORAGE_PREFIX = "career_forward__v1_";
+            const MODULES = [
+              "module1",
+              "module2",
+              "module3",
+              "module4",
+              "module5",
+            ];
+            const TRACKED_PAGES = [
+              "module1",
+              "module2",
+              "module3",
+              "module4",
+              "module5",
+              "quiz",
+            ];
+
+            const state = {
+              currentPage:
+                localStorage.getItem(STORAGE_PREFIX + "currentPage") || "home",
+              completedModules: JSON.parse(
+                localStorage.getItem(STORAGE_PREFIX + "completedModules") ||
+                  "[]"
+              ),
+              visitedPages: JSON.parse(
+                localStorage.getItem(STORAGE_PREFIX + "visitedPages") || "[]"
+              ),
+              quizScore: Number(
+                localStorage.getItem(STORAGE_PREFIX + "quizScore") || 0
+              ),
+            };
+
+            const pages = Array.from(document.querySelectorAll(".page"));
+            const navItems = Array.from(
+              document.querySelectorAll(".nav-item[data-page-target]")
+            );
+            const sidebar = document.getElementById("sidebar");
+            const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+            const menuButton = document.getElementById("menuButton");
+            const progressFill = document.getElementById("progressFill");
+            const progressLabel = document.getElementById("progressLabel");
+            const toast = document.getElementById("toast");
+            const scorePanel = document.getElementById("scorePanel");
+            const scoreValue = document.getElementById("scoreValue");
+            const scoreText = document.getElementById("scoreText");
+            const certificateCard = document.getElementById("certificateCard");
+
+            function saveState() {
+              localStorage.setItem(
+                STORAGE_PREFIX + "currentPage",
+                state.currentPage
+              );
+              localStorage.setItem(
+                STORAGE_PREFIX + "completedModules",
+                JSON.stringify(state.completedModules)
+              );
+              localStorage.setItem(
+                STORAGE_PREFIX + "visitedPages",
+                JSON.stringify(state.visitedPages)
+              );
+              localStorage.setItem(
+                STORAGE_PREFIX + "quizScore",
+                String(state.quizScore)
+              );
+            }
+
+            function showToast(message) {
+              toast.textContent = message;
+              toast.classList.add("show");
+              window.clearTimeout(showToast.timer);
+              showToast.timer = window.setTimeout(() => {
+                toast.classList.remove("show");
+              }, 2200);
+            }
+
+            function closeSidebar() {
+              sidebar.classList.remove("open");
+              sidebarBackdrop.classList.remove("show");
+            }
+
+            function openSidebar() {
+              sidebar.classList.add("open");
+              sidebarBackdrop.classList.add("show");
+            }
+
+            function updateNavState() {
+              navItems.forEach((item) => {
+                const target = item.dataset.pageTarget;
+                item.classList.toggle("active", target === state.currentPage);
+
+                const status = item.querySelector(".nav-status");
+                const completed =
+                  state.completedModules.includes(target) ||
+                  (target === "quiz" && state.quizScore >= 75);
+                item.classList.toggle("done", completed);
+
+                if (status) {
+                  if (completed) {
+                    status.textContent = "✓";
+                  } else if (state.visitedPages.includes(target)) {
+                    status.textContent = "•";
+                  } else {
+                    status.textContent = "○";
+                  }
+                }
+              });
+
+              document.querySelectorAll(".mark-complete").forEach((button) => {
+                const moduleName = button.dataset.module;
+                const done = state.completedModules.includes(moduleName);
+                button.textContent = done
+                  ? "Sudah dibaca"
+                  : "Tandai Sudah Dibaca";
+                button.setAttribute("aria-pressed", String(done));
+                button.classList.toggle("is-done", done);
+              });
+            }
+
+            function computeProgress() {
+              const completedCount = state.completedModules.length;
+              const quizPoint = state.quizScore >= 75 ? 1 : 0;
+              const completionProgress =
+                ((completedCount + quizPoint) / TRACKED_PAGES.length) * 90;
+
+              let readingProgress = 0;
+              const activePage = document.querySelector(".page.active");
+              if (activePage) {
+                const rect = activePage.getBoundingClientRect();
+                const pageHeight = Math.max(
+                  activePage.scrollHeight - window.innerHeight,
+                  1
+                );
+                const scrolled = Math.max(
+                  0,
+                  -rect.top + document.documentElement.scrollTop * 0
+                );
+                const absoluteTop = activePage.offsetTop;
+                const relativeScroll = Math.max(
+                  0,
+                  window.scrollY - absoluteTop
+                );
+                readingProgress = Math.min(
+                  10,
+                  (relativeScroll / pageHeight) * 10
+                );
+              }
+
+              const progress = Math.min(
+                100,
+                Math.round(completionProgress + readingProgress)
+              );
+              progressFill.style.width = progress + "%";
+              progressLabel.textContent = progress + "%";
+            }
+
+            function showPage(pageName, pushToHistory = true) {
+              const validPage = pages.some(
+                (page) => page.dataset.page === pageName
+              )
+                ? pageName
+                : "home";
+              state.currentPage = validPage;
+
+              pages.forEach((page) => {
+                page.classList.toggle(
+                  "active",
+                  page.dataset.page === validPage
+                );
+              });
+
+              if (
+                TRACKED_PAGES.includes(validPage) &&
+                !state.visitedPages.includes(validPage)
+              ) {
+                state.visitedPages.push(validPage);
+              }
+
+              updateNavState();
+              saveState();
+              closeSidebar();
+
+              if (pushToHistory) {
+                history.replaceState(null, "", "#" + validPage);
+              }
+
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              window.setTimeout(function () { computeProgress(); spy(); }, 120);
+            }
+
+            function restoreInputs() {
+              document
+                .querySelectorAll("[data-save-key]")
+                .forEach((element) => {
+                  const key =
+                    STORAGE_PREFIX + "field_" + element.dataset.saveKey;
+                  const saved = localStorage.getItem(key);
+                  if (saved !== null) {
+                    element.value = saved;
+                  }
+
+                  element.addEventListener("input", () => {
+                    localStorage.setItem(key, element.value);
+                  });
+                });
+            }
+
+            function bindNavigation() {
+              navItems.forEach((item) => {
+                item.addEventListener("click", () =>
+                  showPage(item.dataset.pageTarget)
+                );
+              });
+
+              document.querySelectorAll("[data-goto]").forEach((button) => {
+                button.addEventListener("click", () =>
+                  showPage(button.dataset.goto)
+                );
+              });
+
+              document
+                .querySelectorAll("[data-scroll-to]")
+                .forEach((button) => {
+                  button.addEventListener("click", () => {
+                    const target = document.getElementById(
+                      button.dataset.scrollTo
+                    );
+                    if (target) {
+                      target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  });
+                });
+            }
+
+            function bindChapters() {
+              document.querySelectorAll(".chapter-header").forEach((header) => {
+                header.addEventListener("click", () => {
+                  const chapter = header.closest(".chapter");
+                  const isOpen = chapter.classList.toggle("open");
+                  header.setAttribute("aria-expanded", String(isOpen));
+                  window.setTimeout(computeProgress, 60);
+                });
+              });
+            }
+
+            function bindCopyButtons() {
+              document.querySelectorAll(".copy-button").forEach((button) => {
+                button.addEventListener("click", async () => {
+                  const box = button.closest(".prompt-box");
+                  const body = box ? box.querySelector(".prompt-body") : null;
+                  if (!body) {
+                    return;
+                  }
+
+                  const value = body.textContent.trim();
+
+                  try {
+                    await navigator.clipboard.writeText(value);
+                    button.textContent = "Tersalin";
+                    button.classList.add("copied");
+                    showToast("Prompt disalin ke clipboard.");
+                    window.setTimeout(() => {
+                      button.textContent = "Salin";
+                      button.classList.remove("copied");
+                    }, 1400);
+                  } catch (error) {
+                    const range = document.createRange();
+                    range.selectNodeContents(body);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    showToast(
+                      "Clipboard dibatasi browser. Teks prompt sudah diseleksi."
+                    );
+                  }
+                });
+              });
+            }
+
+            function bindCompletion() {
+              document.querySelectorAll(".mark-complete").forEach((button) => {
+                button.addEventListener("click", () => {
+                  const moduleName = button.dataset.module;
+                  if (!state.completedModules.includes(moduleName)) {
+                    state.completedModules.push(moduleName);
+                    saveState();
+                    updateNavState();
+                    computeProgress();
+                    showToast("Modul ditandai selesai.");
+                  }
+                });
+              });
+            }
+
+            function restoreQuizVisual() {
+              if (state.quizScore > 0) {
+                scorePanel.classList.add("show");
+                scoreValue.textContent = state.quizScore + "%";
+                scoreText.textContent =
+                  state.quizScore >= 75
+                    ? "Status: lulus. Anda dapat mengulang evaluasi untuk meningkatkan skor."
+                    : "Status: belum mencapai 75%. Tinjau modul yang masih lemah lalu coba lagi.";
+
+                certificateCard.classList.toggle("show", state.quizScore >= 75);
+              }
+            }
+
+            function bindQuiz() {
+              const quizForm = document.getElementById("quizForm");
+
+              quizForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const cards = Array.from(
+                  document.querySelectorAll(".quiz-card")
+                );
+                let correct = 0;
+                let answered = 0;
+
+                cards.forEach((card) => {
+                  const name = card.dataset.question;
+                  const answer = card.dataset.answer;
+                  const selected = quizForm.querySelector(
+                    'input[name="' + name + '"]:checked'
+                  );
+
+                  card.classList.remove("correct", "incorrect");
+
+                  if (selected) {
+                    answered += 1;
+                    if (selected.value === answer) {
+                      correct += 1;
+                      card.classList.add("correct");
+                    } else {
+                      card.classList.add("incorrect");
+                    }
+                  } else {
+                    card.classList.add("incorrect");
+                  }
+                });
+
+                const score = Math.round((correct / cards.length) * 100);
+                state.quizScore = score;
+
+                if (!state.visitedPages.includes("quiz")) {
+                  state.visitedPages.push("quiz");
+                }
+
+                saveState();
+                updateNavState();
+                computeProgress();
+
+                scorePanel.classList.add("show");
+                scoreValue.textContent = score + "%";
+
+                if (answered < cards.length) {
+                  scoreText.textContent =
+                    "Anda menjawab " +
+                    answered +
+                    " dari " +
+                    cards.length +
+                    " soal. Skor dihitung dari seluruh soal.";
+                } else if (score >= 75) {
+                  scoreText.textContent =
+                    "Status: lulus. " +
+                    correct +
+                    " dari " +
+                    cards.length +
+                    " jawaban benar.";
+                } else {
+                  scoreText.textContent =
+                    "Status: belum mencapai 75%. " +
+                    correct +
+                    " dari " +
+                    cards.length +
+                    " jawaban benar.";
+                }
+
+                certificateCard.classList.toggle("show", score >= 75);
+                scorePanel.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              });
+            }
+
+            function bindUtilityActions() {
+              menuButton.addEventListener("click", () => {
+                if (sidebar.classList.contains("open")) {
+                  closeSidebar();
+                } else {
+                  openSidebar();
+                }
+              });
+
+              sidebarBackdrop.addEventListener("click", closeSidebar);
+
+              document
+                .getElementById("printButton")
+                .addEventListener("click", () => {
+                  window.print();
+                });
+
+              document
+                .getElementById("resetButton")
+                .addEventListener("click", () => {
+                  const confirmed = window.confirm(
+                    "Reset seluruh progress, skor kuis, dan jawaban aktivitas pada browser ini?"
+                  );
+                  if (!confirmed) {
+                    return;
+                  }
+
+                  const keysToRemove = [];
+                  for (let i = 0; i < localStorage.length; i += 1) {
+                    const key = localStorage.key(i);
+                    if (key && key.startsWith(STORAGE_PREFIX)) {
+                      keysToRemove.push(key);
+                    }
+                  }
+
+                  keysToRemove.forEach((key) => localStorage.removeItem(key));
+                  window.location.hash = "home";
+                  window.location.reload();
+                });
+
+              window.addEventListener("scroll", computeProgress, {
+                passive: true,
+              });
+              window.addEventListener("resize", computeProgress);
+
+              window.addEventListener("hashchange", () => {
+                const hash = window.location.hash.replace("#", "");
+                if (hash) {
+                  showPage(hash, false);
+                }
+              });
+            }
+
+            function init() {
+              bindNavigation();
+              buildToc();
+              bindCopyButtons();
+              bindReadToggle();
+              bindPractice();
+              bindUtilityActions();
+              restoreInputs();
+              
+
+              const hashPage = window.location.hash.replace("#", "");
+              const initialPage = hashPage || state.currentPage || "home";
+              showPage(initialPage, false);
+
+              updateNavState();
+              computeProgress();
+            }
+            function buildToc() {
+              document.querySelectorAll(".page").forEach(function (page) {
+                var chapters = page.querySelectorAll(".chapter");
+                var item = document.querySelector(
+                  '.nav-item[data-page-target="' + page.dataset.page + '"]'
+                );
+                if (!chapters.length || !item) {
+                  return;
+                }
+                var ol = document.createElement("ol");
+                ol.className = "toc-chapters";
+                chapters.forEach(function (ch, i) {
+                  ch.id = "bab-" + page.dataset.page + "-" + (i + 1);
+                  var strong = ch.querySelector(".chapter-header strong");
+                  var li = document.createElement("li");
+                  var a = document.createElement("a");
+                  a.href = "#" + ch.id;
+                  a.dataset.chapter = ch.id;
+                  a.textContent = strong ? strong.textContent.trim() : "Bab " + (i + 1);
+                  a.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    ch.scrollIntoView({ behavior: "smooth", block: "start" });
+                    closeSidebar();
+                  });
+                  li.appendChild(a);
+                  ol.appendChild(li);
+                });
+                item.after(ol);
+              });
+              window.addEventListener("scroll", spy, { passive: true });
+            }
+
+            function spy() {
+              var page = document.querySelector(".page.active");
+              if (!page) {
+                return;
+              }
+              var chapters = page.querySelectorAll(".chapter");
+              var current = chapters.length ? chapters[0].id : null;
+              chapters.forEach(function (ch) {
+                if (ch.getBoundingClientRect().top <= 140) {
+                  current = ch.id;
+                }
+              });
+              document.querySelectorAll(".toc-chapters a").forEach(function (a) {
+                a.classList.toggle("current", a.dataset.chapter === current);
+              });
+            }
+
+            function bindReadToggle() {
+              document.querySelectorAll(".mark-complete").forEach(function (b) {
+                b.addEventListener("click", function () {
+                  var m = b.dataset.module;
+                  var i = state.completedModules.indexOf(m);
+                  if (i < 0) {
+                    state.completedModules.push(m);
+                    showToast("Ditandai sudah dibaca.");
+                  } else {
+                    state.completedModules.splice(i, 1);
+                    showToast("Tanda sudah dibaca dihapus.");
+                  }
+                  saveState();
+                  updateNavState();
+                  computeProgress();
+                });
+              });
+            }
+
+            function bindPractice() {
+              var form = document.getElementById("quizForm");
+              var cards = Array.prototype.slice.call(form.querySelectorAll(".quiz-card"));
+              var resetBtn = document.getElementById("checkQuizButton");
+              var K = STORAGE_PREFIX + "quizAnswers";
+              var answers = {};
+              try {
+                answers = JSON.parse(localStorage.getItem(K) || "{}");
+              } catch (e) {
+                answers = {};
+              }
+
+              function grade(card, pick) {
+                var ok = pick === card.dataset.answer;
+                card.classList.add("answered");
+                card.classList.toggle("correct", ok);
+                card.classList.toggle("incorrect", !ok);
+                card.querySelectorAll(".option").forEach(function (o) {
+                  var input = o.querySelector("input");
+                  input.disabled = true;
+                  o.classList.toggle("is-correct", input.value === card.dataset.answer);
+                  o.classList.toggle("is-wrong", input.value === pick && !ok);
+                });
+              }
+
+              function tally() {
+                var done = 0;
+                var right = 0;
+                cards.forEach(function (c) {
+                  var p = answers[c.dataset.question];
+                  if (p) {
+                    done += 1;
+                    if (p === c.dataset.answer) {
+                      right += 1;
+                    }
+                  }
+                });
+                var all = done === cards.length;
+                scorePanel.classList.toggle("show", done > 0);
+                resetBtn.hidden = done === 0;
+                scoreValue.textContent = right + " benar dari " + done + " soal terjawab";
+                scoreText.textContent = all
+                  ? right / cards.length >= 0.75
+                    ? "Latihan selesai. Konsep intinya sudah tertangkap dengan baik."
+                    : "Latihan selesai. Baca ulang bagian yang masih terasa kurang jelas, lalu ulangi latihan."
+                  : "Sisa " + (cards.length - done) + " soal lagi.";
+                certificateCard.classList.toggle("show", all);
+                state.quizScore = all ? Math.round((right / cards.length) * 100) : 0;
+                saveState();
+                updateNavState();
+                computeProgress();
+              }
+
+              cards.forEach(function (c) {
+                var saved = answers[c.dataset.question];
+                if (saved) {
+                  var r = c.querySelector('input[value="' + saved + '"]');
+                  if (r) {
+                    r.checked = true;
+                  }
+                  grade(c, saved);
+                }
+                c.addEventListener("change", function (e) {
+                  if (c.classList.contains("answered")) {
+                    return;
+                  }
+                  answers[c.dataset.question] = e.target.value;
+                  localStorage.setItem(K, JSON.stringify(answers));
+                  grade(c, e.target.value);
+                  tally();
+                });
+              });
+
+              form.addEventListener("submit", function (e) {
+                e.preventDefault();
+              });
+
+              resetBtn.addEventListener("click", function () {
+                answers = {};
+                localStorage.removeItem(K);
+                cards.forEach(function (c) {
+                  c.classList.remove("answered", "correct", "incorrect");
+                  c.querySelectorAll(".option").forEach(function (o) {
+                    var input = o.querySelector("input");
+                    o.classList.remove("is-correct", "is-wrong");
+                    input.disabled = false;
+                    input.checked = false;
+                  });
+                });
+                tally();
+                cards[0].scrollIntoView({ behavior: "smooth", block: "start" });
+              });
+
+              tally();
+            }
+
+            init();
+          })();
+        </script>
+      </body>
+    </html>
